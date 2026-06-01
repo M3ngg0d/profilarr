@@ -1,7 +1,7 @@
 {
-  "name": "Servers@Home Combined Database",
+  "name": "Custom German Combined Database",
   "version": "2.0.0",
-  "description": "Merged Dictionarry + Dumpstarr database for Profilarr v2. Conflicting entities are namespaced with [Dumpstarr] suffix so both sources' profiles score releases as their authors intended.",
+  "description": "Merged Dictionarry + Dumpstarr + TrashGerman database for Profilarr v2.",
   "arr_types": [
     "radarr",
     "sonarr"
@@ -11,21 +11,17 @@
   },
   "authors": [
     {
-      "name": "serversathome"
+      "name": "pascal"
     }
   ],
   "license": "MIT",
-  "repository": "https://github.com/serversathome/profilarr",
-  "links": {
-    "homepage": "https://serversatho.me",
-    "issues": "https://github.com/serversathome/profilarr/issues"
-  },
   "profilarr": {
     "minimum_version": "2.0.0"
   },
   "tags": [
     "dictionarry",
     "dumpstarr",
+    "trashgerman",
     "combined"
   ],
   "upstream": {
@@ -37,10 +33,15 @@
     "dumpstarr": {
       "repo": "https://github.com/Dumpstarr/Database",
       "branch": "stable",
-      "sha": "49b3f9c8"
+      "sha": "a0ce4c85"
     },
-    "synced_at": "2026-06-01 10:31 UTC",
-    "namespaced_custom_formats": 56,
-    "namespaced_regular_expressions": 113
+    "trashgerman": {
+      "repo": "https://github.com/Dictionarry-Hub/trash-pcd",
+      "branch": "german",
+      "sha": "9e2026af"
+    },
+    "synced_at": "2026-06-01 22:14 UTC",
+    "namespaced_custom_formats": 93,
+    "namespaced_regular_expressions": 290
   }
 }
