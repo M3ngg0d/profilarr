@@ -10,6 +10,7 @@ The community has built two excellent databases of these profiles and formats:
 
 - **[Dictionarry](https://github.com/Dictionarry-Hub/database)** by the Dictionarry-Hub team -- 11 quality profiles covering everything from 720p to 2160p Remux
 - **[Dumpstarr](https://github.com/Dumpstarr/Database)** by Dumpstarr -- 9 quality profiles including specialized options like Anime and separate Movie/TV profiles
+- **[TRaSH](https://github.com/Dictionarry-Hub/trash-pcd/tree/german)** by the Dictionarry-Hub team -- 6 quality profiles for German or German DL content
 
 Normally you'd have to pick one or the other. **This repo merges both databases together** so you can use profiles from either source in a single Radarr/Sonarr setup.
 
@@ -29,6 +30,7 @@ Leave the branch field blank. That's it -- you'll have access to all 20 profiles
 |--------|----------|
 | **Dictionarry** | 720p Quality, 1080p Balanced, 1080p Compact, 1080p Efficient, 1080p Quality, 1080p Quality HDR, 1080p Remux, 2160p Balanced, 2160p Efficient, 2160p Quality, 2160p Remux |
 | **Dumpstarr** | LQ 1080p, Anime 1080p, BETA - Anime 1080p, Movies 1080p, Movies 1080p HQ, Movies 2160p, Movies 2160p HQ, TV 1080p, TV 2160p |
+| **TRaSH-PCD German** | [German] HD Bluray + WEB, [German] HD Remux + WEB, [German] Remux + WEB 2160p, [German] UHD Bluray + WEB, [German] UHD Bluray + WEB (Alternative), [German] UHD Remux + WEB |
 
 ## How does it handle conflicts?
 
