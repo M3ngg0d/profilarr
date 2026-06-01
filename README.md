@@ -59,5 +59,6 @@ This project wouldn't exist without the hard work of these communities:
 
 - **[Dictionarry-Hub](https://github.com/Dictionarry-Hub)** -- for the database, schema, and Profilarr itself
 - **[Dumpstarr](https://github.com/Dumpstarr)** -- for the additional profiles and custom formats
+- **[Serversathome](https://github.com/serversathome/profilarr)** -- for the combination of Dictionarry and Dumpstarr databases
 
 This repo is just the glue that brings them together. All the real work happens upstream.
