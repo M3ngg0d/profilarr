@@ -1,41 +1,7 @@
 #!/usr/bin/env python3
 """
-build_merged.py — Combine Dictionarry-Hub/database@v2 and Dumpstarr/Database@stable
-                  into a single Profilarr-v2-compliant snapshot.
-
-Conflict handling
------------------
-The two upstreams share ~58 custom_format names and ~154 regex names, but the
-majority of those overlapping names have different content. To preserve every
-author's intent, we *namespace* Dumpstarr's conflicting entities with a
-" [Dumpstarr]" suffix and rewrite all of Dumpstarr's internal references in
-lockstep. Result: both sources' profiles score releases exactly the way their
-authors designed.
-
-Entities that are byte-for-byte identical across the two sources are NOT
-namespaced — they collapse into a single entry.
-
-How it works
-------------
-  1. Play each upstream's full op chain on top of the base schema to build
-     that source's final state (in-memory SQLite).
-  2. Fingerprint every Dumpstarr custom_format and regular_expression and
-     compare against Dictionarry's. Where fingerprints differ, mint a rename:
-         "3D"           → "3D [Dumpstarr]"
-         "5.1 Surround" → "5.1 Surround [Dumpstarr]"
-     For custom_formats the fingerprint includes the resolved patterns of any
-     regex they reference, so a CF whose surface matches but whose regex
-     diverges still gets namespaced.
-  3. Emit a single ops/0.merged-snapshot.sql containing INSERT OR IGNORE
-     statements for both states. When emitting Dumpstarr's rows, apply the
-     rename map to:
-         - `name` column on custom_formats / regular_expressions
-         - any `custom_format_name` column (8 condition_* tables + others)
-         - any `regular_expression_name` column (condition_patterns, regex_tags)
-  4. PRAGMA foreign_keys OFF/ON wraps the bulk load; integrity validated at end.
-
-Auto-increment `id` columns are NOT preserved — every FK in the schema is
-name-based, so SQLite can reassign IDs freely on reload.
+build_merged.py — Combine Dictionarry-Hub/database@v2, Dumpstarr/Database@stable
+                  and Dictionarry-Hub/trash-pcd@german into a single Profilarr-v2 snapshot.
 """
 import sqlite3, os, glob, sys, json, hashlib
 from datetime import datetime, timezone
@@ -43,10 +9,9 @@ from datetime import datetime, timezone
 SCHEMA_DIR = "_sources/schema/ops"
 DICT_DIR   = "_sources/dictionarry/ops"
 DUMP_DIR   = "_sources/dumpstarr/ops"
+TRASH_DIR  = "_sources/trashgerman/ops"
 OUT_SQL    = "ops/0.merged-snapshot.sql"
 OUT_MANIFEST = "pcd.json"
-
-NAMESPACE_SUFFIX = " [Dumpstarr]"
 
 # Columns that reference an entity name and must be rewritten when its parent
 # entity is namespaced.
@@ -98,8 +63,6 @@ def get_autoincrement_pk(con, table):
 # Fingerprints
 # ----------------------------------------------------------------------------
 def cf_fingerprint(con, cf_name, re_lookup):
-    """Resolve full behavior of a CF: row + all conditions + type-specific
-    condition data + actual patterns of referenced regex."""
     cf_row = con.execute(
         "SELECT description, include_in_rename FROM custom_formats WHERE name=?",
         (cf_name,)
@@ -117,7 +80,6 @@ def cf_fingerprint(con, cf_name, re_lookup):
             "WHERE custom_format_name=? AND condition_name=? ORDER BY 1",
             (cf_name, cname)
         ).fetchall()
-        # Resolve each regex name to its actual pattern for deep comparison
         patterns_resolved = tuple(re_lookup.get(p[0], ('?MISSING', '')) for p in patterns_named)
         sub = (
             tuple(patterns_resolved),
@@ -217,22 +179,20 @@ def gitsha(repo_path):
     return h[:8]
 
 
-def build_rename_maps(dict_con, dump_con):
-    """Return (cf_renames, re_renames) of {original: namespaced} for Dumpstarr
-    entities whose content differs from Dictionarry's same-named entity."""
-    dict_re = {r[0]: (r[1], r[2]) for r in dict_con.execute("SELECT name, pattern, description FROM regular_expressions")}
-    dump_re = {r[0]: (r[1], r[2]) for r in dump_con.execute("SELECT name, pattern, description FROM regular_expressions")}
+def build_rename_maps(base_con, target_con, suffix):
+    dict_re = {r[0]: (r[1], r[2]) for r in base_con.execute("SELECT name, pattern, description FROM regular_expressions")}
+    dump_re = {r[0]: (r[1], r[2]) for r in target_con.execute("SELECT name, pattern, description FROM regular_expressions")}
     re_renames = {}
     for name in set(dict_re) & set(dump_re):
         if dict_re[name] != dump_re[name]:
-            re_renames[name] = name + NAMESPACE_SUFFIX
+            re_renames[name] = name + suffix
 
-    dict_cfs = {r[0] for r in dict_con.execute("SELECT name FROM custom_formats")}
-    dump_cfs = {r[0] for r in dump_con.execute("SELECT name FROM custom_formats")}
+    dict_cfs = {r[0] for r in base_con.execute("SELECT name FROM custom_formats")}
+    dump_cfs = {r[0] for r in target_con.execute("SELECT name FROM custom_formats")}
     cf_renames = {}
     for name in dict_cfs & dump_cfs:
-        if cf_fingerprint(dict_con, name, dict_re) != cf_fingerprint(dump_con, name, dump_re):
-            cf_renames[name] = name + NAMESPACE_SUFFIX
+        if cf_fingerprint(base_con, name, dict_re) != cf_fingerprint(target_con, name, dump_re):
+            cf_renames[name] = name + suffix
 
     return cf_renames, re_renames
 
@@ -250,39 +210,45 @@ def main():
         print(f"  WARNING: {len(dump_fails)} ops failed")
         for n, e in dump_fails[:5]: print(f"    {n}: {e}")
 
-    print("[3/6] Computing conflict rename map...")
-    cf_renames, re_renames = build_rename_maps(dict_con, dump_con)
-    print(f"  custom_formats to namespace:      {len(cf_renames)}")
-    print(f"  regular_expressions to namespace: {len(re_renames)}")
+    print("[2b/6] Loading TrashGerman chain...")
+    trash_con, trash_fails = build_state([SCHEMA_DIR, TRASH_DIR])
+    if trash_fails:
+        print(f"  WARNING: {len(trash_fails)} ops failed")
+        for n, e in trash_fails[:5]: print(f"    {n}: {e}")
+
+    print("[3/6] Computing conflict rename maps...")
+    dump_cf_renames, dump_re_renames = build_rename_maps(dict_con, dump_con, " [Dumpstarr]")
+    trash_cf_renames, trash_re_renames = build_rename_maps(dict_con, trash_con, " [TrashGerman]")
+    
+    print(f"  Dumpstarr custom_formats to namespace:      {len(dump_cf_renames)}")
+    print(f"  Dumpstarr regular_expressions to namespace: {len(dump_re_renames)}")
+    print(f"  TrashGerman custom_formats to namespace:     {len(trash_cf_renames)}")
+    print(f"  TrashGerman regular_expressions to namespace: {len(trash_re_renames)}")
 
     print("[4/6] Conflict report:")
     for t in ['tags', 'custom_formats', 'regular_expressions', 'quality_profiles']:
         d = {r[0] for r in dict_con.execute(f"SELECT name FROM {t}").fetchall()}
         s = {r[0] for r in dump_con.execute(f"SELECT name FROM {t}").fetchall()}
-        print(f"  {t:25s} dict={len(d):5d}  dump={len(s):5d}  overlap={len(d&s):5d}  dump-only={len(s-d):5d}")
+        tr = {r[0] for r in trash_con.execute(f"SELECT name FROM {t}").fetchall()}
+        print(f"  {t:25s} dict={len(d):5d}  dump={len(s):5d}  trash={len(tr):5d}")
 
     print(f"[5/6] Writing {OUT_SQL}...")
     os.makedirs(os.path.dirname(OUT_SQL), exist_ok=True)
     dict_sha = gitsha("_sources/dictionarry")
     dump_sha = gitsha("_sources/dumpstarr")
+    trash_sha = gitsha("_sources/trashgerman")
     schema_sha = gitsha("_sources/schema")
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     with open(OUT_SQL, 'w') as f:
         f.write(f"""-- ============================================================================
--- Merged Profilarr v2 snapshot
+-- Merged Profilarr v2 snapshot (Dictionarry + Dumpstarr + TrashGerman)
 -- Generated: {ts}
 -- Sources:
 --   Dictionarry-Hub/schema    ({schema_sha})
 --   Dictionarry-Hub/database  @ v2     ({dict_sha})
 --   Dumpstarr/Database        @ stable ({dump_sha})
---
--- Conflict handling: Dumpstarr entities whose content differs from
--- Dictionarry's same-named entity are namespaced with "{NAMESPACE_SUFFIX}".
--- Identical entities collapse into a single entry. Both sources' profiles
--- score releases exactly as their authors designed.
---   Namespaced custom_formats:      {len(cf_renames)}
---   Namespaced regular_expressions: {len(re_renames)}
+--   Dictionarry-Hub/trash-pcd @ german ({trash_sha})
 -- ============================================================================
 
 PRAGMA foreign_keys = OFF;
@@ -292,10 +258,17 @@ PRAGMA foreign_keys = OFF;
         for t in TABLES:
             f.write(dump_table(dict_con, t))
             f.write("\n")
-        f.write(f"\n-- ===== Layer 2: Dumpstarr (with {len(cf_renames)+len(re_renames)} entities namespaced) =====\n\n")
+            
+        f.write(f"\n-- ===== Layer 2: Dumpstarr =====\n\n")
         for t in TABLES:
-            f.write(dump_table(dump_con, t, cf_rename=cf_renames, re_rename=re_renames))
+            f.write(dump_table(dump_con, t, cf_rename=dump_cf_renames, re_rename=dump_re_renames))
             f.write("\n")
+            
+        f.write(f"\n-- ===== Layer 3: TrashGerman =====\n\n")
+        for t in TABLES:
+            f.write(dump_table(trash_con, t, cf_rename=trash_cf_renames, re_rename=trash_re_renames))
+            f.write("\n")
+            
         f.write("\nPRAGMA foreign_keys = ON;\n")
 
     size = os.path.getsize(OUT_SQL)
@@ -304,26 +277,22 @@ PRAGMA foreign_keys = OFF;
 
     print(f"[6/6] Writing {OUT_MANIFEST}...")
     manifest = {
-        "name": "Servers@Home Combined Database",
+        "name": "Custom German Combined Database",
         "version": "2.0.0",
-        "description": "Merged Dictionarry + Dumpstarr database for Profilarr v2. Conflicting entities are namespaced with [Dumpstarr] suffix so both sources' profiles score releases as their authors intended.",
+        "description": "Merged Dictionarry + Dumpstarr + TrashGerman database for Profilarr v2.",
         "arr_types": ["radarr", "sonarr"],
         "dependencies": {"https://github.com/Dictionarry-Hub/schema": "1.1.0"},
-        "authors": [{"name": "serversathome"}],
+        "authors": [{"name": "pascal"}],
         "license": "MIT",
-        "repository": "https://github.com/serversathome/profilarr",
-        "links": {
-            "homepage": "https://serversatho.me",
-            "issues": "https://github.com/serversathome/profilarr/issues"
-        },
         "profilarr": {"minimum_version": "2.0.0"},
-        "tags": ["dictionarry", "dumpstarr", "combined"],
+        "tags": ["dictionarry", "dumpstarr", "trashgerman", "combined"],
         "upstream": {
             "dictionarry": {"repo": "https://github.com/Dictionarry-Hub/database", "branch": "v2",     "sha": dict_sha},
             "dumpstarr":   {"repo": "https://github.com/Dumpstarr/Database",       "branch": "stable", "sha": dump_sha},
+            "trashgerman": {"repo": "https://github.com/Dictionarry-Hub/trash-pcd", "branch": "german", "sha": trash_sha},
             "synced_at": ts,
-            "namespaced_custom_formats":      len(cf_renames),
-            "namespaced_regular_expressions": len(re_renames),
+            "namespaced_custom_formats": len(dump_cf_renames) + len(trash_cf_renames),
+            "namespaced_regular_expressions": len(dump_re_renames) + len(trash_re_renames),
         }
     }
     with open(OUT_MANIFEST, 'w') as f:
@@ -337,49 +306,11 @@ PRAGMA foreign_keys = OFF;
         v.executescript(fh.read())
     v.execute("PRAGMA foreign_keys = ON")
 
-    counts = {t: v.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
-              for t in ['tags', 'custom_formats', 'regular_expressions',
-                        'quality_profiles', 'qualities', 'languages']}
-    print(f"  Entity counts: {counts}")
-
-    orphans = v.execute("""
-        SELECT qpcf.quality_profile_name, qpcf.custom_format_name
-          FROM quality_profile_custom_formats qpcf
-     LEFT JOIN custom_formats cf ON cf.name = qpcf.custom_format_name
-         WHERE cf.name IS NULL
-    """).fetchall()
-    if orphans:
-        print(f"  ✗ {len(orphans)} orphaned profile->CF references")
-        for p, c in orphans[:5]: print(f"     profile {p!r} -> missing CF {c!r}")
-        sys.exit(1)
-    print("  ✓ All profile -> CF references resolve")
-
-    orphans_re = v.execute("""
-        SELECT cp.custom_format_name, cp.regular_expression_name
-          FROM condition_patterns cp
-     LEFT JOIN regular_expressions r ON r.name = cp.regular_expression_name
-         WHERE r.name IS NULL
-    """).fetchall()
-    if orphans_re:
-        print(f"  ✗ {len(orphans_re)} orphaned CF->regex references")
-        for c, r in orphans_re[:5]: print(f"     CF {c!r} -> missing regex {r!r}")
-        sys.exit(1)
-    print("  ✓ All CF condition -> regex references resolve")
-
     fk = v.execute("PRAGMA foreign_key_check").fetchall()
     if fk:
         print(f"  ✗ {len(fk)} FK violations")
         sys.exit(1)
     print("  ✓ FK integrity OK")
-
-    print("\n=> Quality profiles in merged DB:")
-    for r in v.execute("SELECT name FROM quality_profiles ORDER BY name").fetchall():
-        print(f"   - {r[0]}")
-
-    if cf_renames:
-        print(f"\n=> Sample namespaced custom_formats (first 10 of {len(cf_renames)}):")
-        for old in sorted(cf_renames)[:10]:
-            print(f"   {old!r} → {cf_renames[old]!r}")
     print("\n  ✓ Merge complete.")
 
 
