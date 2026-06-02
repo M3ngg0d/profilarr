@@ -1,9 +1,9 @@
 -- ============================================================================
 -- Merged Profilarr v2 snapshot (Dictionarry + Dumpstarr + TrashGerman)
--- Generated: 2026-06-01 22:44 UTC
+-- Generated: 2026-06-02 09:18 UTC
 -- Sources:
 --   Dictionarry-Hub/schema    (e1c2bd73)
---   Dictionarry-Hub/database  @ v2     (91b0ded2)
+--   Dictionarry-Hub/database  @ v2     (27b7f459)
 --   Dumpstarr/Database        @ stable (a0ce4c85)
 --   Dictionarry-Hub/trash-pcd @ german (9e2026af)
 -- ============================================================================
@@ -5263,7 +5263,6 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DVD Quality Tier 1', 'Not Remux', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DVD Quality Tier 2', 'Not Remux', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2160p Quality Tier 5', 'BakedFEL', 'release_group', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2160p Quality Tier 5', 'RandomBytes', 'release_group', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('1080p Quality Tier 4', 'eXterminator', 'release_group', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Banned Groups', 'OFT', 'release_group', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Banned Groups', 'nikt0', 'release_group', 'all', 0, 0);
@@ -5561,6 +5560,7 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Banned Groups', 'NIMA4K', 'release_group', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Banned Groups (Compact)', 'NIMA4K', 'release_group', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Banned Groups (Efficient)', 'NIMA4K', 'release_group', 'all', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2160p Quality Tier 4', 'RandomBytes', 'release_group', 'all', 0, 0);
 
 -- condition_patterns: 1286 rows
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('1080p Balanced Tier 1', 'hallowed', 'hallowed');
@@ -6578,7 +6578,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DVD Quality Tier 1', 'Not Remux', 'Remux');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DVD Quality Tier 2', 'Not Remux', 'Remux');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2160p Quality Tier 5', 'BakedFEL', 'BakedFEL');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2160p Quality Tier 5', 'RandomBytes', 'RandomBytes');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('1080p Quality Tier 4', 'eXterminator', 'eXterminator');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Banned Groups', 'OFT', 'OFT');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Banned Groups', 'nikt0', 'nikt0');
@@ -6849,6 +6848,7 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Banned Groups', 'NIMA4K', 'NIMA4K');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Banned Groups (Compact)', 'NIMA4K', 'NIMA4K');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Banned Groups (Efficient)', 'NIMA4K', 'NIMA4K');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2160p Quality Tier 4', 'RandomBytes', 'RandomBytes');
 
 -- condition_languages: 4 rows
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('Not Original', 'Original', 'Original', 0);
