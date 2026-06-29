@@ -1,10 +1,10 @@
 -- ============================================================================
 -- Merged Profilarr v2 snapshot (Dictionarry + Dumpstarr + TrashGerman)
--- Generated: 2026-06-28 08:29 UTC
+-- Generated: 2026-06-29 09:59 UTC
 -- Sources:
 --   Dictionarry-Hub/schema    (e1c2bd73)
 --   Dictionarry-Hub/database  @ v2     (e8f815ff)
---   Dumpstarr/Database        @ stable (c87cc2d3)
+--   Dumpstarr/Database        @ stable (01aedd9a)
 --   Dictionarry-Hub/trash-pcd @ german (49d48646)
 -- ============================================================================
 
@@ -10912,7 +10912,7 @@ INSERT OR IGNORE INTO "qualities" ("name") VALUES ('WEBRip-480p');
 INSERT OR IGNORE INTO "qualities" ("name") VALUES ('WEBRip-720p');
 INSERT OR IGNORE INTO "qualities" ("name") VALUES ('WORKPRINT');
 
--- regular_expressions: 479 rows
+-- regular_expressions: 482 rows
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('1XBET', '\b(1XBET)\b', NULL, '');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('3D [Dumpstarr]', '(?<=\b[12]\d{3}\b).*\b((Bluray|BD)?3D|SBS|H[- .]?OU|H[- .]?SBS|Half[ .-]?OU|Half[ .-]?SBS)\b', NULL, 'Matches terms related to 3D video formats:
 - `bluray3d` or `bd3d` (optional `bluray` or `bd` followed by `3d`).
@@ -11199,7 +11199,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Youku [Dumpstarr]', '\b(Youku|YK)\b', NULL, 'Youku (Chinese: 优酷, literally "excellent and cool") is a leading video streaming platform and former video-sharing website based in Beijing, China. It operates as a subsidiary of Alibaba Group Holding Limited and is one of the country''s largest online long-form video services, often compared to YouTube or Netflix in the Chinese market.');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Yuki [Dumpstarr]', '\[Yuki\]|-Yuki\b', NULL, '');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('YURI [Dumpstarr]', '\[YURI\]|-YURI\b', NULL, '');
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('ZR [Dumpstarr]', '\b(ZR)\b', NULL, '');
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('ZR (WEB)', '\b(ZR)\b', NULL, '');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('DemiHuman', '\b(DemiHuman)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('FLE', '\b(FLE)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Moxie', '\[Moxie\]|-Moxie\b', NULL, NULL);
@@ -11415,6 +11415,9 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('TRaSH LQ (Sonarr)', '^(BRiNK|BTM|CHX|CTFOH|d3g|DepraveD|EVO|Feranki1980|FGT|FMD|GHOSTS|HiQVE|iNTENSO|iVy|JFF|KC|MeGusta|nhanc3|OFT|Pahe(\.(ph|in))?\b|PSA|RBB|SasukeducK|SHD|ShieldBearer|TBS|TG|VIDEOHOLE|worldmkv|XLF|Zero00)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Low Channel Count', '(?<=\b[12]\d{3}\b.*?)(?<!repac)[^0-9][1-4][ .][0-1]\b|\b(Stereo|Mono)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('The Backlist Banned Groups', '(?i)^the[ ._-]+blacklist.*-(RARBG)\b', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('BlackRose', '\b(BlackRose)\b', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Sylvar', '\b(Sylvar)\b', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('ZR (Bluray)', '\b(ZR)\b|-ZR-', NULL, NULL);
 
 -- custom_formats: 161 rows
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('2.0 Stereo', '', 0);
@@ -12482,7 +12485,7 @@ INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name"
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('TV 2160p', '2160p');
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('TV 2160p', 'Sonarr');
 
--- custom_format_conditions: 783 rows
+-- custom_format_conditions: 785 rows
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Stereo', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Not 3.0ch', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Not 4.0', 'release_title', 'all', 1, 1);
@@ -12890,10 +12893,8 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 01', 'Flugel', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 01', 'LYS1TH3A', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 01', 'Moxie', 'release_title', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 01', 'NAN0', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 01', 'sam', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 01', 'SoM', 'release_title', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 01', 'ZR', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'Aergia', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'Arg0', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'Arid', 'release_title', 'all', 0, 0);
@@ -12908,7 +12909,6 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'Lulu', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'Meakes', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'Orphan', 'release_title', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'PMR', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'Vodes', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'WAP', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'YURI', 'release_title', 'all', 0, 0);
@@ -13117,7 +13117,6 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime WEB Tier 03', 'Dooky', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime WEB Tier 03', 'Kitsune', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime WEB Tier 03', 'SubsPlus+', 'release_title', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime WEB Tier 03', 'ZR', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime WEB Tier 04', 'WEB-DL', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime WEB Tier 04', 'WEBRip', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime WEB Tier 04', 'Erai-Raws', 'release_title', 'all', 0, 0);
@@ -13266,8 +13265,14 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Not German or English', 'Not German in Title', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('7.1', 'Not Low Channel Count', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Source', 'The Blacklist', 'release_title', 'sonarr', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 02', 'BlackRose', 'release_title', 'all', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 03', 'NAN0', 'release_title', 'all', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 03', 'PMR', 'release_title', 'all', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 03', 'Sylvar', 'release_title', 'all', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime BD Tier 03', 'ZR (Bluray)', 'release_title', 'all', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Anime WEB Tier 03', 'ZR (WEB)', 'release_title', 'all', 0, 0);
 
--- condition_patterns: 626 rows
+-- condition_patterns: 628 rows
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Stereo', 'Stereo');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Not 3.0ch', 'Not 3.0ch');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Not 4.0', 'Not 4.0ch');
@@ -13560,10 +13565,8 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 01', 'Flugel', 'Flugel [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 01', 'LYS1TH3A', 'LYS1TH3A [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 01', 'Moxie', 'Moxie');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 01', 'NAN0', 'NAN0 [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 01', 'sam', 'sam [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 01', 'SoM', 'SoM');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 01', 'ZR', 'ZR [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'Aergia', 'Aergia');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'Arg0', 'Arg0');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'Arid', 'Arid [Dumpstarr]');
@@ -13578,7 +13581,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'Lulu', 'Lulu [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'Meakes', 'Meakes');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'Orphan', 'Orphan [Dumpstarr]');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'PMR', 'PMR');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'Vodes', 'Vodes [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'WAP', 'WAP');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'YURI', 'YURI [Dumpstarr]');
@@ -13774,7 +13776,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime WEB Tier 03', 'Dooky', 'Dooky');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime WEB Tier 03', 'Kitsune', 'Kitsune Release Title');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime WEB Tier 03', 'SubsPlus+', 'SubsPlus+ [Dumpstarr]');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime WEB Tier 03', 'ZR', 'ZR [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime WEB Tier 04', 'Erai-Raws', 'Erai-Raws [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime WEB Tier 04', 'ToonsHub', 'ToonsHub');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime WEB Tier 04', 'VARYG', 'VARYG [Dumpstarr]');
@@ -13894,6 +13895,12 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Not German or English', 'Not German in Title', 'German Title');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('7.1', 'Not Low Channel Count', 'Low Channel Count');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Bad Source', 'The Blacklist', 'The Backlist Banned Groups');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 02', 'BlackRose', 'BlackRose');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 03', 'NAN0', 'NAN0 [Dumpstarr]');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 03', 'PMR', 'PMR');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 03', 'Sylvar', 'Sylvar');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime BD Tier 03', 'ZR (Bluray)', 'ZR (Bluray)');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Anime WEB Tier 03', 'ZR (WEB)', 'ZR (WEB)');
 
 -- condition_languages: 5 rows
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('Anime Dual Audio', 'Japanese', 'Japanese', 0);
@@ -14343,7 +14350,7 @@ INSERT OR IGNORE INTO "custom_format_tests" ("custom_format_name", "title", "typ
 INSERT OR IGNORE INTO "custom_format_tests" ("custom_format_name", "title", "type", "should_match", "description") VALUES ('Dumpstarr LQ Title', 'Scrubs.S01E09.2026.1080p.DSNP.WEB-DL.DDP5.1.H.264-HDSWEB', 'series', 1, NULL);
 INSERT OR IGNORE INTO "custom_format_tests" ("custom_format_name", "title", "type", "should_match", "description") VALUES ('Dumpstarr LQ Title', 'Scrubs.2026.S01E01.My.Return.1080p.DSNP.WEB-DL.DDP5.1.H.264-FLUX', 'series', 0, NULL);
 
--- regular_expression_tags: 884 rows
+-- regular_expression_tags: 890 rows
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('1XBET', 'Banned');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('1XBET', 'Release Group');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('3D [Dumpstarr]', 'Banned');
@@ -14819,8 +14826,8 @@ INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Yuki [Dumpstarr]', 'Release Group');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('YURI [Dumpstarr]', 'Anime');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('YURI [Dumpstarr]', 'Release Group');
-INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('ZR [Dumpstarr]', 'Anime');
-INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('ZR [Dumpstarr]', 'Release Group');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('ZR (WEB)', 'Anime');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('ZR (WEB)', 'Release Group');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('DemiHuman', 'Release Group');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('DemiHuman', 'Anime');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('FLE', 'Release Group');
@@ -15228,6 +15235,12 @@ INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Low Channel Count', 'Audio');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Low Channel Count', 'TRaSH');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('The Backlist Banned Groups', 'Custom');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('BlackRose', 'Anime');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('BlackRose', 'Release Group');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Sylvar', 'Anime');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Sylvar', 'Release Group');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('ZR (Bluray)', 'Anime');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('ZR (Bluray)', 'Release Group');
 
 -- test_entities: 10 rows
 INSERT OR IGNORE INTO "test_entities" ("type", "tmdb_id", "title", "year", "poster_path") VALUES ('movie', 3049, 'Ace Ventura: Pet Detective', 1994, '/pqiRuETmuSybfnVZ7qyeoXhQyN1.jpg');
