@@ -1,11 +1,11 @@
 -- ============================================================================
 -- Merged Profilarr v2 snapshot (Dictionarry + Dumpstarr + TrashGerman)
--- Generated: 2026-07-06 09:11 UTC
+-- Generated: 2026-07-07 08:44 UTC
 -- Sources:
 --   Dictionarry-Hub/schema    (e1c2bd73)
---   Dictionarry-Hub/database  @ v2     (97c03b3d)
---   Dumpstarr/Database        @ stable (614d19c8)
---   Dictionarry-Hub/trash-pcd @ german (f0c3ddc1)
+--   Dictionarry-Hub/database  @ v2     (3e61728c)
+--   Dumpstarr/Database        @ stable (f4dd3883)
+--   Dictionarry-Hub/trash-pcd @ german (7246b6c7)
 -- ============================================================================
 
 PRAGMA foreign_keys = OFF;
@@ -668,7 +668,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Viu', '\b(Viu)\b', NULL, 'Viu is a Hong Kong-based over-the-top video on demand streaming service from PCCW Media Group''s Viu International Ltd. Viu delivers content in different genres from Asia''s top content providers with local language subtitles');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('VLAD', '(?<=^|[\s.-])VLAD\b', NULL, '');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Vodes', '(?<=^|[\s.-])Vodes\b', NULL, '');
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('VP9', '\b(VP9)\b', NULL, 'VP9 is an open and royalty-free video coding format developed by Google');
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('VP9', '\bVP9\b', NULL, 'VP9 is an open and royalty-free video coding format developed by Google');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('VVC', '[xh][ ._-]?266|\bVVC(\b|\d)', NULL, 'VVC, or Versatile Video Coding (H.266), is a video coding format that compresses video files and streams to significantly smaller sizes than H.265 while maintaining high quality.');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Vyndros', '(?<=^|[\s.-])Vyndros\b', NULL, '');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('W4NK3R', '(?<=^|[\s.-])W4NK3R\b', NULL, '');
@@ -761,7 +761,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('TV DUBBED', '(?<=\bS\d+(E\d+)?\b).*\bDUB(BED)?\b', NULL, 'Extras, Special Features, Featurettes, etc');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('NiCEHEVC', '(?<=^|[\s.-])NiCEHEVC\b', NULL, 'Banned for Fake DV/HDR Layer');
 
--- custom_formats: 258 rows
+-- custom_formats: 257 rows
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('1080p Balanced Tier 1', 'Matches release groups who fall under 1080p Balanced Tier 1', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('1080p Balanced Tier 2', 'Matches release groups who fall under 1080p Balanced Tier 2', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('1080p Bluray', 'Matches 1080p Blurays that are NOT remuxes', 0);
@@ -928,7 +928,6 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('HULU', 'Matches ''Hulu'' WEB-DLs', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('IMAX', 'Matches general IMAX releases', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('IMAX Enhanced', 'Matches higher quality IMAX releases from a WEB-DL Source', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Internal', 'Internal Indexer Flag', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('iP', 'Matches ''BBC iPlayer'' WEB-DLs', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('IQIYI', 'Matches ''IQIYI'' WEB-DLs', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('iT', 'Matches ''iTunes'' WEB-DLs', 1);
@@ -3932,7 +3931,7 @@ INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name"
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('720p Quality', 'h264');
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('720p Quality', 'x264');
 
--- custom_format_conditions: 1642 rows
+-- custom_format_conditions: 1641 rows
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('1080p Balanced Tier 1', '1080p', 'resolution', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('1080p Balanced Tier 1', 'Bluray', 'source', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('1080p Balanced Tier 1', 'hallowed', 'release_group', 'all', 0, 0);
@@ -4962,10 +4961,9 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('HULU', 'HULU Regex', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('HULU', 'WEB-DL', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('HULU', 'WEBRip', 'source', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('IMAX', 'IMAX', 'release_title', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('IMAX', 'IMAX Enhanced', 'release_title', 'all', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('IMAX Enhanced', 'IMAX Enhanced', 'release_title', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Internal', 'Internal', 'indexer_flag', 'all', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('IMAX', 'IMAX', 'release_title', 'radarr', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('IMAX', 'IMAX Enhanced', 'release_title', 'radarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('IMAX Enhanced', 'IMAX Enhanced', 'release_title', 'radarr', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('iP', 'iP Regex', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('iP', 'WEB-DL', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('iP', 'WEBRip', 'source', 'all', 0, 0);
@@ -6795,14 +6793,13 @@ INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_na
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('Not Original or English', 'Original', 'Original', 0);
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('Not Original or English', 'English', 'English', 0);
 
--- condition_indexer_flags: 8 rows
+-- condition_indexer_flags: 7 rows
 INSERT OR IGNORE INTO "condition_indexer_flags" ("custom_format_name", "condition_name", "flag") VALUES ('1080p Golden Popcorn', 'Golden Popcorn', 'ptp_golden');
 INSERT OR IGNORE INTO "condition_indexer_flags" ("custom_format_name", "condition_name", "flag") VALUES ('720p Golden Popcorn', 'Golden Popcorn', 'ptp_golden');
 INSERT OR IGNORE INTO "condition_indexer_flags" ("custom_format_name", "condition_name", "flag") VALUES ('Freeleech 100%', '100% Freeleech', 'freeleech');
 INSERT OR IGNORE INTO "condition_indexer_flags" ("custom_format_name", "condition_name", "flag") VALUES ('Freeleech 25%', '25% Freeleech', 'freeleech_25');
 INSERT OR IGNORE INTO "condition_indexer_flags" ("custom_format_name", "condition_name", "flag") VALUES ('Freeleech 50%', '50% Freeleech', 'halfleech');
 INSERT OR IGNORE INTO "condition_indexer_flags" ("custom_format_name", "condition_name", "flag") VALUES ('Freeleech 75%', '75% Freeleech', 'freeleech_75');
-INSERT OR IGNORE INTO "condition_indexer_flags" ("custom_format_name", "condition_name", "flag") VALUES ('Internal', 'Internal', 'internal');
 INSERT OR IGNORE INTO "condition_indexer_flags" ("custom_format_name", "condition_name", "flag") VALUES ('SD Golden Popcorn', 'Golden Popcorn', 'ptp_golden');
 
 -- condition_quality_modifiers: 2 rows
@@ -7234,7 +7231,7 @@ INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('1080p Efficient TV WEB Tier 5', 'HDTV', 'television');
 
 
--- custom_format_tags: 582 rows
+-- custom_format_tags: 581 rows
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('1080p Balanced Tier 1', '1080p');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('1080p Balanced Tier 1', 'Balanced');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('1080p Balanced Tier 1', 'Release Group Tier');
@@ -7779,7 +7776,6 @@ INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VA
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Vialle Bluray', 'HEVC');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Vialle WEB', 'HEVC');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Weasley WEB', 'HEVC');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Internal', 'Flag');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('2160p SDR', 'Enhancement');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Banned Dual Audio Groups', 'Banned');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('1080p Bluray (Efficient)', 'Source');
@@ -11054,7 +11050,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Viu', '\b(Viu)\b', NULL, 'Viu is a Hong Kong-based over-the-top video on demand streaming service from PCCW Media Group''s Viu International Ltd. Viu delivers content in different genres from Asia''s top content providers with local language subtitles');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Vodes [Dumpstarr]', '\[Vodes\]|(?<!Not)-Vodes\b', NULL, '');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('VOSTFR', '\b(VOST.*?FR(E|A)?)\b', NULL, '');
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('VP9', '\b(VP9)\b', NULL, 'VP9 is an open and royalty-free video coding format developed by Google');
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('VP9 [Dumpstarr]', '\b(VP9)\b', NULL, 'VP9 is an open and royalty-free video coding format developed by Google');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('VRV', '\b(VRV)\b', NULL, '');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Wavve', '\b(Wavve)\b', NULL, 'Wavve is an online streaming platform, that was first launched on September 18, 2019. The company was founded as a joint venture between SK Telecom and South Korea''s three terrestrial broadcasters KBS, MBC, SBS.');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('WBDP [Dumpstarr]', '\b(WBDP)\b', NULL, '');
@@ -11323,7 +11319,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('SyncUP', '^(SyncUP)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('CLEANUP', '^(CLEANUP)$', NULL, NULL);
 
--- custom_formats: 158 rows
+-- custom_formats: 157 rows
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('2.0 Stereo', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('3D [Dumpstarr]', 'Matches the ''3D'' Regex Pattern', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('4K Remaster', '', 0);
@@ -11387,7 +11383,6 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('DTS-X (WEB)', 'Matches releases with DTS-X audio that are not a WEB-DL.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Dubs Only', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Extras [Dumpstarr]', 'Matches the ''Extras'' Regex Pattern', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('FLUX', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('FUNI', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('GAIA', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Group Missing', 'Matches releases where the releases group is not defined.', 0);
@@ -11416,7 +11411,6 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('NF [Dumpstarr]', 'Matches ''Netflix'' WEB-DLs. Negates any encodes.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Fake HDR', 'Matches groups who produce non-retail HDR10+ or Dolby Vision.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('NOW [Dumpstarr]', 'Matches ''Now'' WEB-DLs. Negates any encodes.', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('NTb', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('PCOK [Dumpstarr]', 'Matches ''Peacock'' WEB-DLs. Negates any encodes.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('PLAY [Dumpstarr]', 'Google TV, formerly known as Google Play Movies & TV, is a digital distribution service for movies and television series developed by Google. Launched in 2011 as part of the Google Play product line, the service offers search and discovery of video titles across multiple streaming services, including rental or purchase options, alongside watchlist features for accessing titles from eligible devices and platforms.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('PMTP [Dumpstarr]', 'Matches ''Paramount+'' WEB-DLs. Negates any encodes.', 0);
@@ -11458,7 +11452,7 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('VIKI [Dumpstarr]', 'Matches ''VIKI'' WEB-DLs. Negates any encodes.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('VIU [Dumpstarr]', 'Matches ''VIU'' WEB-DLs. Negates any encodes.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('VOSTFR', '', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('VP9', 'Matches the ''VP9'' Regex Pattern', 0);
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('VP9 [Dumpstarr]', 'Matches the ''VP9'' Regex Pattern', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('VRV', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('WAVVE [Dumpstarr]', 'Matches ''WAVVE'' WEB-DLs. Negates any encodes.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('WeTV [Dumpstarr]', 'Matches ''WeTV'' WEB-DLs. Negates any encodes.', 0);
@@ -11488,6 +11482,7 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Dumpstarr LQ Title (Automation)', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Dumpstarr LQ Groups (Automation)', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Not German or English', '', 0);
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Season Pack [Dumpstarr]', 'This Custom Format can be used to prefer or exclude season packs', 0);
 
 -- delay_profiles: 1 rows
 INSERT OR IGNORE INTO "delay_profiles" ("name", "preferred_protocol", "usenet_delay", "torrent_delay", "bypass_if_highest_quality", "bypass_if_above_custom_format_score", "minimum_custom_format_score") VALUES ('Default Delay', 'prefer_usenet', 60, 60, 0, 0, NULL);
@@ -11519,10 +11514,12 @@ INSERT OR IGNORE INTO "quality_profiles" ("name", "description", "upgrades_allow
 - Releases **without** HDR fallback are not allowed.', 1, 500, 10000, 1);
 INSERT OR IGNORE INTO "quality_profiles" ("name", "description", "upgrades_allowed", "minimum_custom_format_score", "upgrade_until_score", "upgrade_score_increment") VALUES ('TV 1080p', 'Based on the TRaSH Guides WEB-1080p (Alternative) profile, focusing on balanced quality/file size.
 - This profile is recommended for a set-it-and-forget-it setup.
+- x265/HEVC is **allowed** on this profile, so some transcoding is possible if your client **does not** support x265/HEVC.
 - Uncensored versions will be preferred while extended/special versions will be used as fallback.', 1, 0, 10000, 1);
 INSERT OR IGNORE INTO "quality_profiles" ("name", "description", "upgrades_allowed", "minimum_custom_format_score", "upgrade_until_score", "upgrade_score_increment") VALUES ('TV 2160p', 'Based on the TRaSH Guides WEB-2160p (Alternative) profile, focusing on balanced quality/file size.
 - This profile is recommended for a set-it-and-forget-it setup.
-- x265/HEVC is **allowed** on this profile, so some transcoding is possible if your client **does not** support x265/HEVC
+- This profile will **prefer** releases with HDR or Dolby Vision.
+- x265/HEVC is **allowed** on this profile, so some transcoding is possible if your client **does not** support x265/HEVC.
 - Uncensored versions will be preferred while extended/special versions will be used as fallback.
 - Releases **without** HDR fallback are not allowed.', 1, 0, 10000, 1);
 
@@ -11889,7 +11886,7 @@ INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "lang
 INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('TV 1080p', 'Original', 'must');
 INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('TV 2160p', 'Original', 'must');
 
--- quality_profile_custom_formats: 469 rows
+-- quality_profile_custom_formats: 468 rows
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('LQ 1080p', 'Accessibility', 'all', -10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('Anime 1080p', 'Multi-Audio', 'all', 101);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('Anime 1080p', 'Multi-Sub', 'all', 101);
@@ -12055,8 +12052,6 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'Repack2 [Dumpstarr]', 'sonarr', 6);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', '5.1', 'sonarr', 5);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'Repack1 [Dumpstarr]', 'sonarr', 5);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'FLUX', 'sonarr', 2);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'NTb', 'sonarr', 1);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'AV1', 'sonarr', -10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'Bad Multis', 'sonarr', -10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'BR-DISK', 'sonarr', -10000);
@@ -12102,8 +12097,6 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'Repack2 [Dumpstarr]', 'sonarr', 6);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', '5.1', 'sonarr', 5);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'Repack1 [Dumpstarr]', 'sonarr', 5);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'FLUX', 'sonarr', 2);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'NTb', 'sonarr', 1);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'AV1', 'sonarr', -10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'Bad Multis', 'sonarr', -10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'BR-DISK', 'sonarr', -10000);
@@ -12359,6 +12352,9 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('Movies 1080p HQ', 'Bad Source', 'radarr', -10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('Movies 2160p', 'Bad Source', 'radarr', -10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('Movies 2160p HQ', 'Bad Source', 'radarr', -10000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('LQ 1080p', 'Season Pack [Dumpstarr]', 'sonarr', 10);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'Season Pack [Dumpstarr]', 'sonarr', 10);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'Season Pack [Dumpstarr]', 'sonarr', 10);
 
 -- quality_profile_tags: 20 rows
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('LQ 1080p', '1080p');
@@ -12382,7 +12378,7 @@ INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name"
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('TV 2160p', '2160p');
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('TV 2160p', 'Sonarr');
 
--- custom_format_conditions: 804 rows
+-- custom_format_conditions: 803 rows
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Stereo', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Not 3.0ch', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Not 4.0', 'release_title', 'all', 1, 1);
@@ -12603,7 +12599,6 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Dubs Only', 'torenter69', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Dubs Only', 'Yameii', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Extras [Dumpstarr]', 'Extras', 'release_title', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('FLUX', 'FLUX', 'release_group', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('FUNI', 'WEB-DL', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('FUNI', 'WEBRip', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('FUNI', 'FUNI', 'release_title', 'all', 0, 0);
@@ -12670,7 +12665,6 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('NOW [Dumpstarr]', 'NOW Regex', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('NOW [Dumpstarr]', 'NOW Rename Regex', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('NOW [Dumpstarr]', 'WEB-DL', 'source', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('NTb', 'NTb', 'release_group', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('PCOK [Dumpstarr]', 'Peacock', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('PCOK [Dumpstarr]', 'WEB-DL', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('PCOK [Dumpstarr]', 'WEBRip', 'source', 'all', 0, 0);
@@ -12765,7 +12759,7 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VIU [Dumpstarr]', 'WEB-DL', 'source', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VOSTFR', 'VOSTFR', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VOSTFR', 'SUBFRENCH', 'release_title', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VP9', 'VP9', 'release_title', 'all', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VP9 [Dumpstarr]', 'VP9', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VRV', 'WEB-DL', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VRV', 'WEBRip', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VRV', 'VRV', 'release_title', 'all', 0, 0);
@@ -13187,8 +13181,9 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Dumpstarr LQ Groups', 'TARDiS', 'release_group', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Dumpstarr LQ Groups', 'Tofu4U', 'release_group', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Source', 'LQ Sources', 'release_title', 'radarr', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Season Pack [Dumpstarr]', 'Season Pack', 'release_type', 'sonarr', 0, 0);
 
--- condition_patterns: 649 rows
+-- condition_patterns: 647 rows
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Stereo', 'Stereo');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Not 3.0ch', 'Not 3.0ch');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Not 4.0', 'Not 4.0ch');
@@ -13354,7 +13349,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Dubs Only', 'torenter69', 'torenter69');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Dubs Only', 'Yameii', 'Yameii');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Extras [Dumpstarr]', 'Extras', 'Extras');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('FLUX', 'FLUX', 'FLUX [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('FUNI', 'FUNI', 'FUNI');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('GAIA', 'Gaia', 'Gaia');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Group Missing', 'Release Group Missing', 'Release Group Missing');
@@ -13395,7 +13389,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('NF [Dumpstarr]', 'Netflix', 'Netflix [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('NOW [Dumpstarr]', 'NOW Regex', 'Now');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('NOW [Dumpstarr]', 'NOW Rename Regex', 'Now Rename');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('NTb', 'NTb', 'NTb [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('PCOK [Dumpstarr]', 'Peacock', 'Peacock TV [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('PLAY [Dumpstarr]', 'Google Play', 'Google Play');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('PLAY [Dumpstarr]', 'Google Play Rename', 'Google Play Rename');
@@ -13467,7 +13460,7 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('VIU [Dumpstarr]', 'VIU Regex', 'Viu');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('VOSTFR', 'VOSTFR', 'VOSTFR');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('VOSTFR', 'SUBFRENCH', 'SUBFRENCH');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('VP9', 'VP9', 'VP9');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('VP9 [Dumpstarr]', 'VP9', 'VP9 [Dumpstarr]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('VRV', 'VRV', 'VRV');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('WAVVE [Dumpstarr]', 'WAVVE Regex', 'Wavve');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('WeTV [Dumpstarr]', 'WeTV Regex', 'WeTV');
@@ -13848,8 +13841,9 @@ INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_na
 
 
 
--- condition_release_types: 1 rows
+-- condition_release_types: 2 rows
 INSERT OR IGNORE INTO "condition_release_types" ("custom_format_name", "condition_name", "release_type") VALUES ('Multi-Episode', 'Mutli-Episode', 'multi_episode');
+INSERT OR IGNORE INTO "condition_release_types" ("custom_format_name", "condition_name", "release_type") VALUES ('Season Pack [Dumpstarr]', 'Season Pack', 'season_pack');
 
 -- condition_resolutions: 9 rows
 INSERT OR IGNORE INTO "condition_resolutions" ("custom_format_name", "condition_name", "resolution") VALUES ('4K Remaster', 'Not 2160p', '2160p');
@@ -14006,7 +14000,7 @@ INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('ATV', 'WEBRip', 'webrip');
 
 
--- custom_format_tags: 257 rows
+-- custom_format_tags: 255 rows
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('2.0 Stereo', 'Audio');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('2.0 Stereo', 'Channel Count');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('3D [Dumpstarr]', 'Banned');
@@ -14115,7 +14109,6 @@ INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VA
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Dubs Only', 'Anime');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Extras [Dumpstarr]', 'Banned');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Extras [Dumpstarr]', 'Enhancement');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('FLUX', 'Release Group');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('FUNI', 'Anime');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('FUNI', 'Streaming Service');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('GAIA', 'Streaming Service');
@@ -14160,7 +14153,6 @@ INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VA
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Fake HDR', 'HDR');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('NOW [Dumpstarr]', 'Streaming Service');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('NOW [Dumpstarr]', 'WEB-DL');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('NTb', 'Release Group');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('PCOK [Dumpstarr]', 'Streaming Service');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('PCOK [Dumpstarr]', 'WEB-DL');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('PLAY [Dumpstarr]', 'Streaming Service');
@@ -14221,8 +14213,8 @@ INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VA
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VIU [Dumpstarr]', 'WEB-DL');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VOSTFR', 'Anime');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VOSTFR', 'TRaSH');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VP9', 'Bleeding Edge');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VP9', 'Codec');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VP9 [Dumpstarr]', 'Bleeding Edge');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VP9 [Dumpstarr]', 'Codec');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VRV', 'Anime');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VRV', 'Streaming Service');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('WAVVE [Dumpstarr]', 'Streaming Service');
@@ -14724,7 +14716,7 @@ INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Vodes [Dumpstarr]', 'Anime');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Vodes [Dumpstarr]', 'Release Group');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('VOSTFR', 'Anime');
-INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('VP9', 'Codec');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('VP9 [Dumpstarr]', 'Codec');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('VRV', 'Anime');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('VRV', 'Streaming Service');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Wavve', 'Streaming Service');
@@ -15275,7 +15267,7 @@ INSERT OR IGNORE INTO "test_releases" ("entity_type", "entity_tmdb_id", "title",
 
 -- ===== Layer 3: TrashGerman =====
 
--- tags: 22 rows
+-- tags: 23 rows
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Accessibility (Optional)');
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Audio Channels');
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Audio Formats');
@@ -15292,6 +15284,7 @@ INSERT OR IGNORE INTO "tags" ("name") VALUES ('Language Profiles');
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Miscellaneous');
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Miscellaneous (Optional)');
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Movie Versions');
+INSERT OR IGNORE INTO "tags" ("name") VALUES ('Release Type (Optional)');
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Repacks/Proper (Required)');
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Resolution (Optional)');
 INSERT OR IGNORE INTO "tags" ("name") VALUES ('Series Versions');
@@ -15397,7 +15390,7 @@ INSERT OR IGNORE INTO "qualities" ("name") VALUES ('WEBRip-480p');
 INSERT OR IGNORE INTO "qualities" ("name") VALUES ('WEBRip-720p');
 INSERT OR IGNORE INTO "qualities" ("name") VALUES ('WORKPRINT');
 
--- regular_expressions: 645 rows
+-- regular_expressions: 649 rows
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('12GaugeShotgun', '^(12GaugeShotgun)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('1XBET', '^(1XBET)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('1XBET (2)', '\b(1XBET)\b', NULL, NULL);
@@ -15655,7 +15648,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('MEGA', '^(MEGA)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('MeGusta [TrashGerman]', '^(MeGusta)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Mesc', '^(Mesc)$', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('MGE', '^(MGE)$', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('MGE', '^(MGE\b.*)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('mHD', '^(mHD)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Mic Dubbed', '\b(MD|AC3MD|Mic[ .-]?Dubbed)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('MisFiTS', '^(MisFiTS)$', NULL, NULL);
@@ -15681,7 +15674,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('NINJACENTRAL [TrashGerman]', '^(NINJACENTRAL)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('NoGroup [TrashGerman]', 'NoGr(ou)?p', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('NOSiViD [TrashGerman]', '^(NOSiViD)$', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not 6.1 Surround', '[^0-9]6[ .][0-1]', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not 6.1 Surround', '[^0-9]6[ .][0-1]\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not Basic Dolby Digital', '\bDD[^a-z+]|(?<!e-)\b(ac-?3)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not Basic DTS', 'DTS[ .]?[1-9]', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not Criterion RlsGrp', '^(Criterion)$', NULL, NULL);
@@ -15918,7 +15911,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('No FANRES', '\b(FANRES)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not Hybrid', '\bhybrid(\b|\d)', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not Hybrid Release Group', '-HYBRID', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Dolby Vision [TrashGerman]', '\b(dv|dovi|dolby[ .]?V(ision)?)\b', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Dolby Vision [TrashGerman]', '\b(dv|dovi|dolby[ .]?v(ision)?)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not RlsGrp', '\b(Flights)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not HDR', '\bHDR(\b|\d)', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not Hulu', '\b(hulu)\b', NULL, NULL);
@@ -15955,7 +15948,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('BiOMA', '^(BiOMA)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('BlackBit', '^(BlackBit)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('BNd', '^(BNd)$', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('C.A.A', '^(C\\.A\\.A)$', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('C.A.A', '^(C\.A\.A)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Cory', '^(Cory)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('EniaHD', '^(EniaHD)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('EXTREME', '^(EXTREME)$', NULL, NULL);
@@ -15980,7 +15973,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('ZigZag', '^(ZigZag)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('ZNM', '^(ZNM)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('ONLYMOViE', '^(ONLYMOViE)$', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('TM', '^(TM\\b)$', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('TM', '^(TM\b)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('BR-DISK (BTN)', '^(?!.*\b((?<!HD[._ -]|HD)DVD|BDRip|720p|MKV|XviD|WMV|d3g|(BD)?REMUX|^(?=.*1080p)(?=.*HEVC)|[x][-_. ]?26[45]|German.*[DM]L|((?<=\d{4}).*German.*([DM]L)?)(?=.*\b(AVC|HEVC|VC[-_. ]?1|MVC|MPEG[-_. ]?2)\b))\b)(((?=.*\b(Blu[-_. ]?ray|BD|HD[-_. ]?DVD)\b)(?=.*\b(AVC|HEVC|VC[-_. ]?1|MVC|MPEG[-_. ]?2|BDMV|ISO|H[ ._-]?26[45])\b))|^((?=.*\b(((?=.*\b((.*_)?COMPLETE.*|Dis[ck])\b)(?=.*(Blu[-_. ]?ray|HD[-_. ]?DVD)))|3D[-_. ]?BD|BR[-_. ]?DISK|Full[-_. ]?Blu[-_. ]?ray|^((?=.*((BD|UHD)[-_. ]?(25|50|66|100|ISO)))))))).*', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Blackout/B&W/Black&Chrome (Radarr)', '(?<=\b[12]\d{3}\b).*\b((B(lack)?[ ._-]?(out|(and|[n&])?[ ._-]?(W(hite)?|Chrome))))\b(?!$)', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Monochrome', '(?<=\b[12]\d{3}\b).*\b(Monochrome)\b(?!$)', NULL, NULL);
@@ -15991,7 +15984,7 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Darkness and Light', '(?<=\b[12]\d{3}\b).*\b(Darkness?[ ._-]?(and|&)[ ._-]?(Light))\b(?!$)', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('No Parsed Group', '.', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Scrambled (Radarr)', '(?<=\b[12]\d{3}\b).*(Scrambled)\b', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Scrambled (Sonarr)', '(?<=\bS\\d+\b).*(Scrambled)\b', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Scrambled (Sonarr)', '(?<=\bS\d+\b).*(Scrambled)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('4P', '-4P\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('4Planet', '-4Planet\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('AsRequested', '-AsRequested\b', NULL, NULL);
@@ -16016,8 +16009,8 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('.heb', '[.]heb\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('ORARBG', '\b(ORARBG)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Scene Groups + Naming', '^(?=.*(\b\d{3,4}p\b).*([_. ]WEB[_. ])(?!DL)\b)|\b(-CAKES|-GGEZ|-GGWP|-GLHF|-GOSSIP|-NAISU|-KOGI|-PECULATE|-SLOT|-EDITH|-ETHEL|-ELEANOR|-B2B|-SPAMnEGGS|-FTP|-DiRT|-SYNCOPY|-BAE|-SuccessfulCrab|-NHTFS|-SURCODE|-B0MBARDIERS|-D3US|-BROTHERHOOD|-W4K|-STRiKES)', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not INFLATE/DEFLATE', '\b(INFLATE|DEFLATE)\b', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not GERMAN', '\b(GERMAN)\b', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not INFLATE/DEFLATE (Radarr)', '\b(INFLATE|DEFLATE)\b', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not GERMAN (Radarr)', '\b(GERMAN)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Sing-Along', '(?<=\b[12]\d{3}\b).*\b(Sing[-_. ]Along)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('HFR', '\b(HFR)\b', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('INTERNAL', '\b(INTERNAL)\b', NULL, NULL);
@@ -16043,8 +16036,12 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('CLEANUP', '^(CLEANUP)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('FS', '^(FS)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('SyncUP', '^(SyncUP)$', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not 6.1 Surround (2)', '[^0-9]6[ .][0-1]', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('MGE (2)', '^(MGE)$', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not INFLATE/DEFLATE (Sonarr)', '\b(INFLATE|DEFLATE[)\]]?)$', NULL, NULL);
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Not GERMAN (Sonarr)', '\b(GERMAN)$', NULL, NULL);
 
--- custom_formats: 133 rows
+-- custom_formats: 136 rows
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('1080p', '**1080p**
 
 This Custom Format can boost 1080p releases. It is only useful if you use Merge Qualities in your Quality Profile.', 0);
@@ -16215,7 +16212,7 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 - WiP
 - Groups that haven''t released much or are not well recognized. (yet)
 - Groups that retired and don''t have the best quality by today''s standards.', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('German DL [TrashGerman]', '**Language: German + Original aka German DL**
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('German DL (Language)', '**Language: German + Original aka German DL**
 
 This custom format helps Radarr/Sonarr recognize German Dual Language audio releases.
 
@@ -16524,7 +16521,7 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 Some streaming services have UHD releases that are generally better than their HD counterparts. The UHD Streaming Boost custom format increases those streaming services'' scores appropriately for UHD releases. Use this in conjunction with the regular streaming service custom formats.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Hybrid', 'Hybrid
 
-A hybrid release means any combination of sources (video + audio) and not a direct encoding of a single source. Generally, you can be sure that any hybrid put together should be the best quality release of a particular title. However, not all release groups always mention that their release is a hybrid release.', 0);
+A hybrid release means any combination of sources (video + audio) and not a direct encoding of a single source. Generally, you can be sure that any hybrid put together should be the best quality release of a particular title. However, not all release groups always mention that their release is a hybrid release.', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Remaster', 'Remaster
 
 From Wikipedia, the free encyclopedia
@@ -16536,10 +16533,10 @@ A remastered or mastered in 4K should give you usually the best picture and audi
 
 To be clear, the final digital films on the Mastered in 4K Blu-rays still only have the same 1920 x 1080 pixels of actual resolution as normal Blu-rays. But the argument goes that because these full HD files were derived from higher-resolution masters, their images will be more precise, with better colors, less noise, and enhanced sharpness and detail. Not least because the higher-resolution mastering process will provide more detail from the original print for the Blu-ray masters to draw on when going through their (hopefully…) frame-by-frame compression process.
 
-Another important element of the Mastered in 4K discs is that they’re all mastered with ‘x.v.YCC’ color specification. This delivers an expanded color range closer to that contained in source material.', 0);
+Another important element of the Mastered in 4K discs is that they’re all mastered with ‘x.v.YCC’ color specification. This delivers an expanded color range closer to that contained in source material.', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Criterion Collection', 'Criterion Collection
 
-The Criterion Collection, Inc. (or simply Criterion) is an American home video distribution company that focuses on licensing "important classic and contemporary films" and selling them to film aficionados. Criterion has helped to standardize characteristics of home video such as film restoration, using the letterbox format for widescreen films, and adding bonus features and commentary tracks', 0);
+The Criterion Collection, Inc. (or simply Criterion) is an American home video distribution company that focuses on licensing "important classic and contemporary films" and selling them to film aficionados. Criterion has helped to standardize characteristics of home video such as film restoration, using the letterbox format for widescreen films, and adding bonus features and commentary tracks', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('IMAX [TrashGerman]', 'IMAX
 
 From In Depth Cine
@@ -16556,7 +16553,7 @@ IMAX Enhanced is a standard for digital releases. It features scenes shot on IMA
 Due to the higher bitrate and implied picture quality improvement, it is recommended that the IMAX Enhanced custom format be enabled on WEB profiles, especially for those seeking ''The IMAX Experience''—including fewer "black bars" or letterboxing.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Masters of Cinema', 'Masters of Cinema
 
-Masters of Cinema is a line of DVD and Blu-ray releases published through Eureka Entertainment. Because of the uniformly branded and spine-numbered packaging and the standard inclusion of booklets and analysis by recurring film historians, the line is often perceived as the UK equivalent of The Criterion Collection.', 0);
+Masters of Cinema is a line of DVD and Blu-ray releases published through Eureka Entertainment. Because of the uniformly branded and spine-numbered packaging and the standard inclusion of booklets and analysis by recurring film historians, the line is often perceived as the UK equivalent of The Criterion Collection.', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Open Matte', 'Open Matte
 
 Open matte is a filming technique that involves matting out the top and bottom of the film frame in the movie projector (known as a soft matte) for the widescreen theatrical release and then scanning the film without a matte (at an Academy ratio) for a full-screen home video release.', 0);
@@ -16571,29 +16568,29 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 The Theatrical Cut is the film''s version shown in the cinemas.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Vinegar Syndrome', 'Vinegar Syndrome
 
-Vinegar Syndrome is a US-based company founded in 2012 to preserve and distribute old X-rated films. Over time, they expanded their catalog to include other types of cult and exploitation films, specializing in horror and action genres.', 0);
+Vinegar Syndrome is a US-based company founded in 2012 to preserve and distribute old X-rated films. Over time, they expanded their catalog to include other types of cult and exploitation films, specializing in horror and action genres.', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('WiTH AD', 'With Audio Description
 
 Audio Description (AD) is an extra narration track that describes key visual details — such as scenery, costumes, and actions — for blind or visually impaired viewers. It makes TV and film content more accessible by explaining what cannot be heard in the main audio.
 
 Some releases include Audio Description, marked as WITH AD or AD. Note: this is not the same as advertisements.
 
-For more information, visit the Audio Description Wikipedia page.', 0);
+For more information, visit the Audio Description Wikipedia page.', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('WiTH ASL', 'ASL (American Sign Language)
 
 ASL is a sign language used in the United States and English-speaking Canada. It uses a one-handed alphabet and was heavily influenced by French Sign Language (LSF). ASL relies on spatial organization and facial expressions to convey meaning and grammar.
 
-For more information, visit the American Sign Language Wikipedia page.', 0);
+For more information, visit the American Sign Language Wikipedia page.', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('WiTH BASL', 'BASL (Black American Sign Language)
 
 BASL is a dialect of ASL used primarily by Black Deaf Americans, originating from segregated schools in the South. Compared to mainstream ASL, it uses a larger signing space, more two-handed signs, and greater emotional expression.
 
-For more information, visit the Black American Sign Language Wikipedia page.', 0);
+For more information, visit the Black American Sign Language Wikipedia page.', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('WiTH BSL', 'BSL (British Sign Language)
 
 BSL is a sign language used across the United Kingdom. It uses a two-handed alphabet and is part of the BANZSL language family, alongside Australian and New Zealand sign languages. BSL relies on body movement and hand shapes to convey meaning, and often follows a topic-comment sentence structure.
 
-For more information, visit the British Sign Language Wikipedia page.', 0);
+For more information, visit the British Sign Language Wikipedia page.', 1);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Bad Dual Groups', 'Bad Dual/Multi groups
 
 These release groups do not use the original language of the media as the first audio track. Since ffprobe relies on the first audio track to determine the primary language of the release, incorrect ordering can lead to parsing issues. This may result in failed imports, misidentified files, or even download loops. To ensure proper handling, the original language should always be the first audio track in the release.', 0);
@@ -16639,8 +16636,8 @@ Warning
 Keep in mind not all trackers support this option.', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('HFR', 'HFR
 
-HFR stands for High Frame Rate and refers to a video format that uses a higher number of frames per second than traditional video, which could result in smoother and more detailed motion.', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Internal [TrashGerman]', 'Internal
+HFR stands for High Frame Rate and refers to a video format that uses a higher number of frames per second than traditional video, which could result in smoother and more detailed motion.', 1);
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Internal', 'Internal
 
 Those who prefer scene releases may want to boost internals, as they generally have higher settings that may not conform to the ruleset.
 In some rare cases, P2P use is also INTERNAL.', 0);
@@ -16664,23 +16661,42 @@ This is a new codec and you need modern devices that support it.
 We also had reports of playback/transcoding issues.
 No respectable release group is using it (yet).
 It''s better to ignore this new codec to prevent compatibility issues.', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('x264', 'x264
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('x264 (Codec)', 'x264
 
 x264 is a free software library and application for encoding video streams into the H.264/MPEG-4 AVC compression format, and is released under the terms of the GNU GPL.
 
 x264 is primarily used for 720p/1080p encodes and has better direct-play and compatibility support.', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('x265 [TrashGerman]', 'x265
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('x265 (Codec)', 'x265
 
 x265 is a free software library and application for encoding video streams into the H.265/MPEG-H HEVC compression format, and is released under the terms of the GNU GPL.
 
 This applies to all x265/HEVC releases that are not remux.
 
 x265 is primarily used for 2160p encodes and for 1080p encodes that have HDR Formats included (DV, DV HDR10, HDR, etc.). x265 is good for 4K content or 1080p if they use the remuxes (untouched source) as the source. If the media isn''t source quality or remux, then there will be a loss of quality. If you are storage-poor and just need to save space, use x265 (10-20% space-saving). The catch is that if you want the best quality x265, you need high-quality source files, so you will still have huge file sizes. It''s a shame that many x265 groups microsize their releases or use x264 as a source, which results in low-quality releases. The few groups that do use the correct source suffer from it.', 0);
-INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('x266', 'x266
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('x266 (Codec)', 'x266
 
 Versatile Video Coding (VVC), also known as H.266, ISO/IEC 23090-3, and MPEG-I Part 3, is a video compression standard finalized on 6 July 2020. Wikipedia.
 
 This applies to all x266/VVC releases that are not Remux.', 0);
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Multi-Episode', 'Multi-Episode
+
+This CF utilizes functionality only available in Sonarr v4.0.2.1262 or later.
+
+This Custom Format will recognize multi-episode releases (e.g. episodes named with ''S01E01E02''), instead of single-episode or season packs, using Sonarr''s built-in parser. Depending on your preference, you can give it a negative or positive score or skip adding it altogether.', 0);
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Season Pack [TrashGerman]', 'Season Pack
+
+This CF utilizes functionality only available starting in Sonarr v4.0.2.1262.
+
+This Custom Format can be used to prefer or exclude season packs
+
+Give it a score of 10 if you prefer a season pack.
+Give it a score of -10000 if you prefer to not download season packs.
+Utilizes the "Release Type" custom format condition added in v4.0.2.1262, Season Pack source status is now persistently stored alongside episodes.', 0);
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Single Episode', 'Single Episode
+
+This CF utilizes functionality only available starting in Sonarr v4.0.2.1262.
+
+This Custom Format will recognize single-episode releases, instead of multi-episode or season packs, using Sonarr''s built-in parser. Depending on your preference, you can give it a negative or positive score or skip adding it altogether.', 0);
 
 -- delay_profiles: 1 rows
 INSERT OR IGNORE INTO "delay_profiles" ("name", "preferred_protocol", "usenet_delay", "torrent_delay", "bypass_if_highest_quality", "bypass_if_above_custom_format_score", "minimum_custom_format_score") VALUES ('Default', 'prefer_torrent', 0, 0, 0, 0, NULL);
@@ -17125,8 +17141,8 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German Bluray Tier 02', 'sonarr', 2650);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German Bluray Tier 03', 'radarr', 2300);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German Bluray Tier 03', 'sonarr', 2300);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German DL [TrashGerman]', 'radarr', 11000);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German DL [TrashGerman]', 'sonarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German DL (Language)', 'radarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German DL (Language)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German DL (undefined)', 'radarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German DL (undefined)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', 'German LQ', 'radarr', -35000);
@@ -17230,8 +17246,8 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German', 'sonarr', 10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German 1080p Booster', 'radarr', 650);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German 1080p Booster', 'sonarr', 650);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German DL [TrashGerman]', 'radarr', 11000);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German DL [TrashGerman]', 'sonarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German DL (Language)', 'radarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German DL (Language)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German DL (undefined)', 'radarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German DL (undefined)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Remux + WEB', 'German LQ', 'radarr', -35000);
@@ -17329,7 +17345,7 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] Remux + WEB 2160p', 'German', 'radarr', 10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] Remux + WEB 2160p', 'German 1080p Booster', 'radarr', 650);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] Remux + WEB 2160p', 'German 2160p Booster', 'radarr', 9000);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] Remux + WEB 2160p', 'German DL [TrashGerman]', 'radarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] Remux + WEB 2160p', 'German DL (Language)', 'radarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] Remux + WEB 2160p', 'German DL (undefined)', 'radarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] Remux + WEB 2160p', 'German LQ', 'radarr', -35000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] Remux + WEB 2160p', 'German LQ (release title)', 'radarr', -35000);
@@ -17419,8 +17435,8 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German Bluray Tier 02', 'sonarr', 2650);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German Bluray Tier 03', 'radarr', 2300);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German Bluray Tier 03', 'sonarr', 2300);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German DL [TrashGerman]', 'radarr', 11000);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German DL [TrashGerman]', 'sonarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German DL (Language)', 'radarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German DL (Language)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German DL (undefined)', 'radarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German DL (undefined)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'German LQ', 'radarr', -35000);
@@ -17545,8 +17561,8 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German Bluray Tier 02', 'sonarr', 2650);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German Bluray Tier 03', 'radarr', 2300);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German Bluray Tier 03', 'sonarr', 2300);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German DL [TrashGerman]', 'radarr', 11000);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German DL [TrashGerman]', 'sonarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German DL (Language)', 'radarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German DL (Language)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German DL (undefined)', 'radarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German DL (undefined)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Bluray + WEB', 'German LQ', 'radarr', -35000);
@@ -17633,7 +17649,7 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Remux + WEB', 'German', 'sonarr', 10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Remux + WEB', 'German 1080p Booster', 'sonarr', 650);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Remux + WEB', 'German 2160p Booster', 'sonarr', 9000);
-INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Remux + WEB', 'German DL [TrashGerman]', 'sonarr', 11000);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Remux + WEB', 'German DL (Language)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Remux + WEB', 'German DL (undefined)', 'sonarr', 11000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Remux + WEB', 'German LQ', 'sonarr', -35000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] UHD Remux + WEB', 'German LQ (release title)', 'sonarr', -35000);
@@ -17693,7 +17709,7 @@ INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name"
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('[German] UHD Bluray + WEB', 'German');
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('[German] UHD Remux + WEB', 'German');
 
--- custom_format_conditions: 992 rows
+-- custom_format_conditions: 997 rows
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('1080p', '1080p', 'resolution', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2160p', '2160p', 'resolution', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('3D [TrashGerman]', '3D', 'release_title', 'all', 0, 0);
@@ -17881,8 +17897,8 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German DL (undefined)', 'German', 'language', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German DL (undefined)', 'ML', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German DL (undefined)', 'NOT Original Language', 'language', 'all', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German DL [TrashGerman]', 'German', 'language', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German DL [TrashGerman]', 'Original Language', 'language', 'all', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German DL (Language)', 'German', 'language', 'all', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German DL (Language)', 'Original Language', 'language', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German LQ (release title)', 'Double German Tag', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German LQ (release title)', 'Jellyfin-Plex', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('German LQ (release title)', 'TVS iTunesHD', 'release_title', 'all', 0, 0);
@@ -18524,7 +18540,7 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DV (w/o HDR fallback)', 'Dolby Vision', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DV (w/o HDR fallback)', 'WEBDL', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DV (w/o HDR fallback)', 'WEBRIP', 'source', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DV (w/o HDR fallback)', 'Not RlsGrp', 'release_title', 'all', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DV (w/o HDR fallback)', 'Not RlsGrp', 'release_group', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DV (w/o HDR fallback)', 'Not HDR', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('DV (w/o HDR fallback)', 'Not Hulu', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('SDR', '2160p', 'resolution', 'all', 0, 1);
@@ -18534,7 +18550,6 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('SDR (no WEBDL)', 'HDR Formats', 'release_title', 'all', 1, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('SDR (no WEBDL)', 'SDR', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('SDR (no WEBDL)', 'Not WEBDL', 'source', 'all', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('SDR (no WEBDL)', 'Not WEBRIP', 'source', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('HD Streaming Boost', 'Disney+', 'release_title', 'sonarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('HD Streaming Boost', 'WEBDL', 'source', 'sonarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('HD Streaming Boost', 'WEBRIP', 'source', 'sonarr', 0, 0);
@@ -18550,7 +18565,7 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Hybrid', 'Bluray', 'source', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Hybrid', 'Not Hybrid Release Group', 'release_group', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Hybrid', 'Hybrid', 'release_title', 'all', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Remaster', 'Remaster', 'release_title', 'all', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Remaster', 'Remaster', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Remaster', 'Not 4K Remaster', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('4K Remaster', 'Remaster', 'release_title', 'radarr', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('4K Remaster', '4K', 'release_title', 'radarr', 0, 1);
@@ -18619,7 +18634,7 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Black and White Editions', 'No/Minus Color', 'release_title', 'radarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Black and White Editions', 'Grayscale', 'release_title', 'radarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Black and White Editions', 'Darkness and Light', 'release_title', 'radarr', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('No-RlsGroup', 'No Parsed Group', 'release_title', 'all', 1, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('No-RlsGroup', 'No Parsed Group', 'release_group', 'all', 1, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Obfuscated', '4P', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Obfuscated', '4Planet', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Obfuscated', 'AsRequested', 'release_title', 'all', 0, 0);
@@ -18646,26 +18661,24 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Retags', '.heb', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Retags', 'ORARBG', 'release_title', 'radarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Scene', 'Scene Groups + Naming', 'release_title', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Scene', 'Not INFLATE/DEFLATE', 'release_title', 'all', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Scene', 'Not GERMAN', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Sing-Along Versions', 'Sing-Along', 'release_title', 'radarr', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('FreeLeech', 'FreeLeech', 'indexer_flag', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('HFR', 'HFR', 'release_title', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Internal [TrashGerman]', 'INTERNAL', 'release_title', 'all', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Internal', 'INTERNAL', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('MPEG2', 'MPEG2', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Multi', 'Multi', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('P2P Internal', 'Internal', 'indexer_flag', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VC-1', 'VC-1', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('VP9 [TrashGerman]', 'VP9', 'release_title', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x264', 'x|h264', 'release_title', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x264', 'Remux', 'quality_modifier', 'radarr', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x264', 'Not Remux', 'source', 'sonarr', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x265 [TrashGerman]', 'Not Remux', 'source', 'sonarr', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x265 [TrashGerman]', 'Remux', 'quality_modifier', 'radarr', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x265 [TrashGerman]', 'x|h265', 'release_title', 'all', 0, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x266', 'Not Remux', 'source', 'sonarr', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x266', 'Remux', 'quality_modifier', 'radarr', 1, 1);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x266', 'x|h266', 'release_title', 'all', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x264 (Codec)', 'x|h264', 'release_title', 'all', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x264 (Codec)', 'Remux', 'quality_modifier', 'radarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x264 (Codec)', 'Not Remux', 'source', 'sonarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x265 (Codec)', 'Not Remux', 'source', 'sonarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x265 (Codec)', 'Remux', 'quality_modifier', 'radarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x265 (Codec)', 'x|h265', 'release_title', 'all', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x266 (Codec)', 'Not Remux', 'source', 'sonarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x266 (Codec)', 'Remux', 'quality_modifier', 'radarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('x266 (Codec)', 'x|h266', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('WEB Tier 01', 'ABBiE', 'release_group', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('LQ (Release Title)', 'R&H', 'release_title', 'all', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('WEB Tier 01', 'MADSKY', 'release_group', 'all', 0, 0);
@@ -18686,8 +18699,16 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('LQ', 'CLEANUP', 'release_group', 'radarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('LQ', 'FS', 'release_group', 'radarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('LQ', 'SyncUP', 'release_group', 'radarr', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Scene', 'Not GERMAN (Radarr)', 'release_title', 'radarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Scene', 'Not GERMAN (Sonarr)', 'release_title', 'sonarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Scene', 'Not INFLATE/DEFLATE (Radarr)', 'release_title', 'radarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Scene', 'Not INFLATE/DEFLATE (Sonarr)', 'release_title', 'sonarr', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('SDR (no WEBDL)', 'Not WEBRip', 'source', 'all', 1, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Multi-Episode', 'Multi-Episode', 'release_type', 'sonarr', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Season Pack [TrashGerman]', 'Season Pack', 'release_type', 'sonarr', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Single Episode', 'Single Episode', 'release_type', 'sonarr', 0, 0);
 
--- condition_patterns: 855 rows
+-- condition_patterns: 857 rows
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('3D [TrashGerman]', '3D', '3D [TrashGerman]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('3D [TrashGerman]', 'BD3D', 'BD3D');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('3D [TrashGerman]', 'BluRay3D', 'BluRay3D');
@@ -18758,7 +18779,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DTS-ES [TrashGerman]', 'Not PCM', 'Not PCM');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DTS-ES [TrashGerman]', 'Not TrueHD/ATMOS', 'Not TrueHD/ATMOS');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DTS-HD HRA [TrashGerman]', 'DTS-HD HRA', 'DTS-HD HRA [TrashGerman]');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DTS-HD HRA [TrashGerman]', 'Not 6.1 Surround', 'Not 6.1 Surround');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DTS-HD HRA [TrashGerman]', 'Not AAC', 'AAC [TrashGerman]');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DTS-HD HRA [TrashGerman]', 'Not Basic Dolby Digital', 'Not Basic Dolby Digital');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DTS-HD HRA [TrashGerman]', 'Not Basic DTS', 'Not Basic DTS');
@@ -18937,7 +18957,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('German Scene', 'HDARCHiV', 'HDARCHiV');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('German Scene', 'iNTENTiON', 'iNTENTiON');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('German Scene', 'JaJunge', 'JaJunge');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('German Scene', 'MGE', 'MGE');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('German Scene', 'MisFiTS', 'MisFiTS');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('German Scene', 'muhHD', 'muhHD');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('German Scene', 'OCA', 'OCA');
@@ -19404,7 +19423,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DV (Disk)', 'Not Hybrid', 'Not Hybrid');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DV (Disk)', 'Not Hybrid Release Group', 'Not Hybrid Release Group');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DV (w/o HDR fallback)', 'Dolby Vision', 'Dolby Vision [TrashGerman]');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DV (w/o HDR fallback)', 'Not RlsGrp', 'Not RlsGrp');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DV (w/o HDR fallback)', 'Not HDR', 'Not HDR');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DV (w/o HDR fallback)', 'Not Hulu', 'Not Hulu');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('SDR', 'HDR Formats', 'HDR Formats');
@@ -19484,7 +19502,6 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Black and White Editions', 'No/Minus Color', 'No/Minus Color');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Black and White Editions', 'Grayscale', 'Grayscale');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Black and White Editions', 'Darkness and Light', 'Darkness and Light');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('No-RlsGroup', 'No Parsed Group', 'No Parsed Group');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Obfuscated', '4P', '4P');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Obfuscated', '4Planet', '4Planet');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Obfuscated', 'AsRequested', 'AsRequested');
@@ -19511,18 +19528,16 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Retags', '.heb', '.heb');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Retags', 'ORARBG', 'ORARBG');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Scene', 'Scene Groups + Naming', 'Scene Groups + Naming');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Scene', 'Not INFLATE/DEFLATE', 'Not INFLATE/DEFLATE');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Scene', 'Not GERMAN', 'Not GERMAN');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Sing-Along Versions', 'Sing-Along', 'Sing-Along');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('HFR', 'HFR', 'HFR');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Internal [TrashGerman]', 'INTERNAL', 'INTERNAL');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Internal', 'INTERNAL', 'INTERNAL');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('MPEG2', 'MPEG2', 'MPEG2');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Multi', 'Multi', 'Multi');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('VC-1', 'VC-1', 'VC-1');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('VP9 [TrashGerman]', 'VP9', 'VP9 [TrashGerman]');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('x264', 'x|h264', 'x|h264');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('x265 [TrashGerman]', 'x|h265', 'x|h265');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('x266', 'x|h266', 'x|h266');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('x264 (Codec)', 'x|h264', 'x|h264');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('x265 (Codec)', 'x|h265', 'x|h265');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('x266 (Codec)', 'x|h266', 'x|h266');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('WEB Tier 01', 'ABBiE', 'ABBiE');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('LQ (Release Title)', 'R&H', 'R&H');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('WEB Tier 01', 'MADSKY', 'MADSKY [TrashGerman]');
@@ -19543,6 +19558,14 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('LQ', 'CLEANUP', 'CLEANUP');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('LQ', 'FS', 'FS');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('LQ', 'SyncUP', 'SyncUP');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DTS-HD HRA [TrashGerman]', 'Not 6.1 Surround', 'Not 6.1 Surround (2)');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('German Scene', 'MGE', 'MGE (2)');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Scene', 'Not GERMAN (Radarr)', 'Not GERMAN (Radarr)');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Scene', 'Not GERMAN (Sonarr)', 'Not GERMAN (Sonarr)');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Scene', 'Not INFLATE/DEFLATE (Radarr)', 'Not INFLATE/DEFLATE (Radarr)');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Scene', 'Not INFLATE/DEFLATE (Sonarr)', 'Not INFLATE/DEFLATE (Sonarr)');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('DV (w/o HDR fallback)', 'Not RlsGrp', 'Not RlsGrp');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('No-RlsGroup', 'No Parsed Group', 'No Parsed Group');
 
 -- condition_languages: 12 rows
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German 1080p Booster', 'German', 'German', 0);
@@ -19551,8 +19574,8 @@ INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_na
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German 2160p Booster', 'Original Language', 'Original', 0);
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German DL (undefined)', 'NOT Original Language', 'Original', 0);
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German DL (undefined)', 'German', 'German', 0);
-INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German DL [TrashGerman]', 'German', 'German', 0);
-INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German DL [TrashGerman]', 'Original Language', 'Original', 0);
+INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German DL (Language)', 'German', 'German', 0);
+INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German DL (Language)', 'Original Language', 'Original', 0);
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German', 'German', 'German', 0);
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('German', 'NOT Original', 'Original', 0);
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('Not German or English', 'Not English Language', 'English', 0);
@@ -19577,10 +19600,14 @@ INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "cond
 INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('UHD Bluray Tier 01', 'Not REMUX', 'remux');
 INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('UHD Bluray Tier 02', 'Not REMUX', 'remux');
 INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('UHD Bluray Tier 03', 'Not REMUX', 'remux');
-INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('x264', 'Remux', 'remux');
-INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('x265 [TrashGerman]', 'Remux', 'remux');
-INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('x266', 'Remux', 'remux');
+INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('x264 (Codec)', 'Remux', 'remux');
+INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('x265 (Codec)', 'Remux', 'remux');
+INSERT OR IGNORE INTO "condition_quality_modifiers" ("custom_format_name", "condition_name", "quality_modifier") VALUES ('x266 (Codec)', 'Remux', 'remux');
 
+-- condition_release_types: 3 rows
+INSERT OR IGNORE INTO "condition_release_types" ("custom_format_name", "condition_name", "release_type") VALUES ('Multi-Episode', 'Multi-Episode', 'multi_episode');
+INSERT OR IGNORE INTO "condition_release_types" ("custom_format_name", "condition_name", "release_type") VALUES ('Season Pack [TrashGerman]', 'Season Pack', 'season_pack');
+INSERT OR IGNORE INTO "condition_release_types" ("custom_format_name", "condition_name", "release_type") VALUES ('Single Episode', 'Single Episode', 'single_episode');
 
 -- condition_resolutions: 18 rows
 INSERT OR IGNORE INTO "condition_resolutions" ("custom_format_name", "condition_name", "resolution") VALUES ('1080p', '1080p', '1080p');
@@ -19680,7 +19707,6 @@ INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('DV (w/o HDR fallback)', 'WEBDL', 'web_dl');
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('DV (w/o HDR fallback)', 'WEBRIP', 'webrip');
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('SDR (no WEBDL)', 'Not WEBDL', 'web_dl');
-INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('SDR (no WEBDL)', 'Not WEBRIP', 'webrip');
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('HD Streaming Boost', 'WEBDL', 'web_dl');
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('HD Streaming Boost', 'WEBRIP', 'webrip');
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('UHD Streaming Boost', 'WEBDL', 'web_dl');
@@ -19689,12 +19715,13 @@ INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('Hybrid', 'Bluray', 'bluray');
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('Criterion Collection', 'Bluray', 'bluray');
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('Criterion Collection', 'DVD', 'dvd');
-INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('x264', 'Not Remux', 'bluray_raw');
-INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('x265 [TrashGerman]', 'Not Remux', 'bluray_raw');
-INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('x266', 'Not Remux', 'bluray_raw');
+INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('x264 (Codec)', 'Not Remux', 'bluray_raw');
+INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('x265 (Codec)', 'Not Remux', 'bluray_raw');
+INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('x266 (Codec)', 'Not Remux', 'bluray_raw');
+INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('SDR (no WEBDL)', 'Not WEBRip', 'webrip');
 
 
--- custom_format_tags: 135 rows
+-- custom_format_tags: 138 rows
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('TrueHD [TrashGerman]', 'Audio Formats');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('TrueHD ATMOS', 'Audio Formats');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('DTS [TrashGerman]', 'Audio Formats');
@@ -19751,7 +19778,7 @@ INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VA
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('German 2160p Booster', 'German Miscellaneous');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Not German or English', 'Language Profiles');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('German', 'Language Profiles');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('German DL [TrashGerman]', 'Language Profiles');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('German DL (Language)', 'Language Profiles');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('German DL (undefined)', 'Language Profiles');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('German Bluray Tier 01', 'German Source Groups');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('German Bluray Tier 02', 'German Source Groups');
@@ -19821,15 +19848,18 @@ INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VA
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Sing-Along Versions', 'Unwanted Formats');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('FreeLeech', 'Miscellaneous (Optional)');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('HFR', 'Miscellaneous (Optional)');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Internal [TrashGerman]', 'Miscellaneous (Optional)');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Internal', 'Miscellaneous (Optional)');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('MPEG2', 'Miscellaneous (Optional)');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Multi', 'Miscellaneous (Optional)');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('P2P Internal', 'Miscellaneous (Optional)');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VC-1', 'Miscellaneous (Optional)');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('VP9 [TrashGerman]', 'Miscellaneous (Optional)');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('x264', 'Miscellaneous (Optional)');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('x265 [TrashGerman]', 'Miscellaneous (Optional)');
-INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('x266', 'Miscellaneous (Optional)');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('x264 (Codec)', 'Miscellaneous (Optional)');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('x265 (Codec)', 'Miscellaneous (Optional)');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('x266 (Codec)', 'Miscellaneous (Optional)');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Multi-Episode', 'Release Type (Optional)');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Season Pack [TrashGerman]', 'Release Type (Optional)');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Single Episode', 'Release Type (Optional)');
 
 
 
