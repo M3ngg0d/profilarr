@@ -1,10 +1,10 @@
 -- ============================================================================
 -- Merged Profilarr v2 snapshot (Dictionarry + Dumpstarr + TrashGerman)
--- Generated: 2026-07-16 07:32 UTC
+-- Generated: 2026-07-17 07:29 UTC
 -- Sources:
 --   Dictionarry-Hub/schema    (e1c2bd73)
 --   Dictionarry-Hub/database  @ v2     (fdd2c990)
---   Dumpstarr/Database        @ stable (dce1939d)
+--   Dumpstarr/Database        @ stable (2538857e)
 --   Dictionarry-Hub/trash-pcd @ german (15dff9ec)
 -- ============================================================================
 
@@ -11474,9 +11474,9 @@ INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('The Four Seasons Banned Groups', '(?i)^the[ ._-]+four[ ._-]+seasons.*-(HiggsBoson|iVy|KONTRAST|TFA)\b', NULL, 'Matches releases for season 8 of the show Adventure Time from groups that do not follow the TVDB ordering.');
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('HiggsBoson', '^(HiggsBosson)$', NULL, NULL);
 INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('JFF', '^(JFF)$', NULL, NULL);
-INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Friends S09', '(?i)^Friends[ ._-]S09.*-(Kitsune)\b', NULL, 'Targets releases of Friends season 09 from groups that cause import issues in Sonarr.');
+INSERT OR IGNORE INTO "regular_expressions" ("name", "pattern", "regex101_id", "description") VALUES ('Release Name (Spaces)', '^[A-Za-z0-9]+\s+[A-Za-z0-9]+\s+[A-Za-z0-9]+', NULL, 'Targets releases that use spaces in the release name.');
 
--- custom_formats: 158 rows
+-- custom_formats: 159 rows
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('2.0 Stereo', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('3D [Dumpstarr]', 'Matches the ''3D'' Regex Pattern', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('4K Remaster', '', 0);
@@ -11641,6 +11641,7 @@ INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_renam
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Not German or English', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('x265 [Dumpstarr]', '', 0);
 INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Season Pack [Dumpstarr]', '', 0);
+INSERT OR IGNORE INTO "custom_formats" ("name", "description", "include_in_rename") VALUES ('Bad Season Pack', 'This format targets season packs from specific groups that cause issues at import.', 0);
 
 -- delay_profiles: 1 rows
 INSERT OR IGNORE INTO "delay_profiles" ("name", "preferred_protocol", "usenet_delay", "torrent_delay", "bypass_if_highest_quality", "bypass_if_above_custom_format_score", "minimum_custom_format_score") VALUES ('Default Delay', 'prefer_usenet', 60, 60, 0, 0, NULL);
@@ -12044,7 +12045,7 @@ INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "lang
 INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('TV 1080p', 'Original', 'must');
 INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('TV 2160p', 'Original', 'must');
 
--- quality_profile_custom_formats: 469 rows
+-- quality_profile_custom_formats: 470 rows
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('LQ 1080p', 'Accessibility', 'all', -10000);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('Anime 1080p', 'Multi-Audio', 'all', 101);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('Anime 1080p', 'Multi-Sub', 'all', 101);
@@ -12514,6 +12515,7 @@ INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", 
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 2160p', 'Season Pack [Dumpstarr]', 'sonarr', 10);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('LQ 1080p', 'Season Pack [Dumpstarr]', 'sonarr', 1);
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('Anime 1080p', 'Season Pack [Dumpstarr]', 'sonarr', 10);
+INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('TV 1080p', 'Bad Season Pack', 'sonarr', -10000);
 
 -- quality_profile_tags: 20 rows
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('LQ 1080p', '1080p');
@@ -12537,7 +12539,7 @@ INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name"
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('TV 2160p', '2160p');
 INSERT OR IGNORE INTO "quality_profile_tags" ("quality_profile_name", "tag_name") VALUES ('TV 2160p', 'Sonarr');
 
--- custom_format_conditions: 958 rows
+-- custom_format_conditions: 960 rows
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Stereo', 'release_title', 'all', 0, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Not 3.0ch', 'release_title', 'all', 1, 1);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('2.0 Stereo', 'Not 4.0', 'release_title', 'all', 1, 1);
@@ -13495,9 +13497,11 @@ INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", 
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Source', 'Adventure Time S08', 'release_title', 'sonarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Source', 'House Season 06', 'release_title', 'sonarr', 0, 0);
 INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Source', 'The Office (US) S09', 'release_title', 'sonarr', 0, 0);
-INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Source', 'Friends S09', 'release_title', 'sonarr', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Season Pack', 'Season Pack', 'release_type', 'sonarr', 0, 1);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Season Pack', 'Kitsune', 'release_group', 'sonarr', 0, 0);
+INSERT OR IGNORE INTO "custom_format_conditions" ("custom_format_name", "name", "type", "arr_type", "negate", "required") VALUES ('Bad Season Pack', 'Release Name (Spaces)', 'release_title', 'sonarr', 0, 1);
 
--- condition_patterns: 801 rows
+-- condition_patterns: 802 rows
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Stereo', 'Stereo');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Not 3.0ch', 'Not 3.0ch');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('2.0 Stereo', 'Not 4.0', 'Not 4.0ch');
@@ -14298,7 +14302,8 @@ INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_nam
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Bad Source', 'Adventure Time S08', 'Adventure Time Season 8 Banned Groups');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Bad Source', 'House Season 06', 'House Season 6 Banned Groups');
 INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Bad Source', 'The Office (US) S09', 'The Office (US) S09E23 Banned Groups');
-INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Bad Source', 'Friends S09', 'Friends S09');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Bad Season Pack', 'Kitsune', 'Kitsune [Dumpstarr]');
+INSERT OR IGNORE INTO "condition_patterns" ("custom_format_name", "condition_name", "regular_expression_name") VALUES ('Bad Season Pack', 'Release Name (Spaces)', 'Release Name (Spaces)');
 
 -- condition_languages: 5 rows
 INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_name", "language_name", "except_language") VALUES ('Anime Dual Audio', 'Japanese', 'Japanese', 0);
@@ -14309,9 +14314,10 @@ INSERT OR IGNORE INTO "condition_languages" ("custom_format_name", "condition_na
 
 
 
--- condition_release_types: 2 rows
+-- condition_release_types: 3 rows
 INSERT OR IGNORE INTO "condition_release_types" ("custom_format_name", "condition_name", "release_type") VALUES ('Multi-Episode', 'Mutli-Episode', 'multi_episode');
 INSERT OR IGNORE INTO "condition_release_types" ("custom_format_name", "condition_name", "release_type") VALUES ('Season Pack [Dumpstarr]', 'Season Pack', 'season_pack');
+INSERT OR IGNORE INTO "condition_release_types" ("custom_format_name", "condition_name", "release_type") VALUES ('Bad Season Pack', 'Season Pack', 'season_pack');
 
 -- condition_resolutions: 10 rows
 INSERT OR IGNORE INTO "condition_resolutions" ("custom_format_name", "condition_name", "resolution") VALUES ('4K Remaster', 'Not 2160p', '2160p');
@@ -14469,7 +14475,7 @@ INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name
 INSERT OR IGNORE INTO "condition_sources" ("custom_format_name", "condition_name", "source") VALUES ('ATV', 'WEBRip', 'webrip');
 
 
--- custom_format_tags: 255 rows
+-- custom_format_tags: 257 rows
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('2.0 Stereo', 'Audio');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('2.0 Stereo', 'Channel Count');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('3D [Dumpstarr]', 'Banned');
@@ -14725,6 +14731,8 @@ INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VA
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Dumpstarr LQ Groups (Automation)', 'Banned');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Not German or English', 'Language');
 INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('x265 [Dumpstarr]', 'Codec');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Bad Season Pack', 'Custom');
+INSERT OR IGNORE INTO "custom_format_tags" ("custom_format_name", "tag_name") VALUES ('Bad Season Pack', 'Banned');
 
 -- custom_format_tests: 10 rows
 INSERT OR IGNORE INTO "custom_format_tests" ("custom_format_name", "title", "type", "should_match", "description") VALUES ('Baseline Groups', 'Deadpool.2.2018.2160p.DSNP.WEB-DL.DDPA.5.1.DV.HDR.H.265-PiRaTeS', 'movie', 1, NULL);
@@ -16125,7 +16133,7 @@ INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('HiggsBoson', 'Banned');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('JFF', 'Release Group');
 INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('JFF', 'Banned');
-INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Friends S09', 'Custom');
+INSERT OR IGNORE INTO "regular_expression_tags" ("regular_expression_name", "tag_name") VALUES ('Release Name (Spaces)', 'Custom');
 
 -- test_entities: 10 rows
 INSERT OR IGNORE INTO "test_entities" ("type", "tmdb_id", "title", "year", "poster_path") VALUES ('movie', 3049, 'Ace Ventura: Pet Detective', 1994, '/pqiRuETmuSybfnVZ7qyeoXhQyN1.jpg');
