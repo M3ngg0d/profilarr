@@ -38,10 +38,10 @@
     "trashgerman": {
       "repo": "https://github.com/Dictionarry-Hub/trash-pcd",
       "branch": "german",
-      "sha": "44ff9985"
+      "sha": "8722950d"
     },
-    "synced_at": "2026-08-09 05:58 UTC",
+    "synced_at": "2026-08-10 06:42 UTC",
     "namespaced_custom_formats": 81,
-    "namespaced_regular_expressions": 319
+    "namespaced_regular_expressions": 320
   }
 }
