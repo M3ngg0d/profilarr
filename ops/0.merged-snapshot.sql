@@ -1,6 +1,6 @@
 -- ============================================================================
 -- Merged Profilarr v2 snapshot (Dictionarry + Dumpstarr + TrashGerman)
--- Generated: 2026-08-10 06:42 UTC
+-- Generated: 2026-08-11 06:05 UTC
 -- Sources:
 --   Dictionarry-Hub/schema    (e1c2bd73)
 --   Dictionarry-Hub/database  @ v2     (c7095559)
