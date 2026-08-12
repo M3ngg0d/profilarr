@@ -28,20 +28,20 @@
     "dictionarry": {
       "repo": "https://github.com/Dictionarry-Hub/database",
       "branch": "v2",
-      "sha": "c7095559"
+      "sha": "ca8cdff8"
     },
     "dumpstarr": {
       "repo": "https://github.com/Dumpstarr/Database",
       "branch": "stable",
-      "sha": "5b6175af"
+      "sha": "e4e604cd"
     },
     "trashgerman": {
       "repo": "https://github.com/Dictionarry-Hub/trash-pcd",
       "branch": "german",
       "sha": "8722950d"
     },
-    "synced_at": "2026-08-11 06:05 UTC",
-    "namespaced_custom_formats": 81,
-    "namespaced_regular_expressions": 320
+    "synced_at": "2026-08-12 06:43 UTC",
+    "namespaced_custom_formats": 83,
+    "namespaced_regular_expressions": 322
   }
 }
