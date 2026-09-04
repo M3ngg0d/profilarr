@@ -28,7 +28,7 @@
     "dictionarry": {
       "repo": "https://github.com/Dictionarry-Hub/database",
       "branch": "v2",
-      "sha": "392f482c"
+      "sha": "e1ab358f"
     },
     "dumpstarr": {
       "repo": "https://github.com/Dumpstarr/Database",
@@ -40,7 +40,7 @@
       "branch": "german",
       "sha": "83acc2d1"
     },
-    "synced_at": "2026-09-03 09:53 UTC",
+    "synced_at": "2026-09-04 09:41 UTC",
     "namespaced_custom_formats": 86,
     "namespaced_regular_expressions": 334
   }
