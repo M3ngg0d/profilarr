@@ -1,11 +1,11 @@
 -- ============================================================================
 -- Merged Profilarr v2 snapshot (Dictionarry + Dumpstarr + TrashGerman)
--- Generated: 2026-09-24 10:03 UTC
+-- Generated: 2026-09-25 10:13 UTC
 -- Sources:
 --   Dictionarry-Hub/schema    (e1c2bd73)
 --   Dictionarry-Hub/database  @ v2     (d459f7d3)
 --   Dumpstarr/Database        @ stable (ee4368c5)
---   Dictionarry-Hub/trash-pcd @ german (0cdd38fd)
+--   Dictionarry-Hub/trash-pcd @ german (576567bf)
 -- ============================================================================
 
 PRAGMA foreign_keys = OFF;
@@ -18964,6 +18964,13 @@ INSERT OR IGNORE INTO "quality_profile_qualities" ("quality_profile_name", "qual
 INSERT OR IGNORE INTO "quality_profile_qualities" ("quality_profile_name", "quality_name", "quality_group_name", "position", "enabled", "upgrade_until") VALUES ('[German] UHD Bluray + WEB', 'HDTV-480p', NULL, 25, 0, 0);
 INSERT OR IGNORE INTO "quality_profile_qualities" ("quality_profile_name", "quality_name", "quality_group_name", "position", "enabled", "upgrade_until") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'HDTV-480p', NULL, 21, 0, 0);
 
+-- quality_profile_languages: 6 rows
+INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('[German] HD Bluray + WEB', 'Any', 'simple');
+INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('[German] HD Remux + WEB', 'Any', 'simple');
+INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('[German] Remux + WEB 2160p', 'Any', 'simple');
+INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('[German] UHD Bluray + WEB', 'Any', 'simple');
+INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('[German] UHD Bluray + WEB (Alternative)', 'Any', 'simple');
+INSERT OR IGNORE INTO "quality_profile_languages" ("quality_profile_name", "language_name", "type") VALUES ('[German] UHD Remux + WEB', 'Any', 'simple');
 
 -- quality_profile_custom_formats: 597 rows
 INSERT OR IGNORE INTO "quality_profile_custom_formats" ("quality_profile_name", "custom_format_name", "arr_type", "score") VALUES ('[German] HD Bluray + WEB', '1080p', 'radarr', 50);
