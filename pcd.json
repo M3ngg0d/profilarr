@@ -28,7 +28,7 @@
     "dictionarry": {
       "repo": "https://github.com/Dictionarry-Hub/database",
       "branch": "v2",
-      "sha": "e78c9de9"
+      "sha": "216687b2"
     },
     "dumpstarr": {
       "repo": "https://github.com/Dumpstarr/Database",
@@ -38,9 +38,9 @@
     "trashgerman": {
       "repo": "https://github.com/Dictionarry-Hub/trash-pcd",
       "branch": "german",
-      "sha": "bf0a7aa4"
+      "sha": "75be084d"
     },
-    "synced_at": "2026-10-16 09:52 UTC",
+    "synced_at": "2026-10-17 09:24 UTC",
     "namespaced_custom_formats": 87,
     "namespaced_regular_expressions": 344
   }
