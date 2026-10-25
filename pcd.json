@@ -28,19 +28,19 @@
     "dictionarry": {
       "repo": "https://github.com/Dictionarry-Hub/database",
       "branch": "v2",
-      "sha": "acc3e2a5"
+      "sha": "f5e7eecf"
     },
     "dumpstarr": {
       "repo": "https://github.com/Dumpstarr/Database",
       "branch": "stable",
-      "sha": "f4e689d4"
+      "sha": "43a64368"
     },
     "trashgerman": {
       "repo": "https://github.com/Dictionarry-Hub/trash-pcd",
       "branch": "german",
-      "sha": "75be084d"
+      "sha": "1e229ac6"
     },
-    "synced_at": "2026-10-24 09:34 UTC",
+    "synced_at": "2026-10-25 09:50 UTC",
     "namespaced_custom_formats": 88,
     "namespaced_regular_expressions": 344
   }
