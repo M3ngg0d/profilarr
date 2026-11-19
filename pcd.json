@@ -33,14 +33,14 @@
     "dumpstarr": {
       "repo": "https://github.com/Dumpstarr/Database",
       "branch": "stable",
-      "sha": "d1693be0"
+      "sha": "23872902"
     },
     "trashgerman": {
       "repo": "https://github.com/Dictionarry-Hub/trash-pcd",
       "branch": "german",
       "sha": "9c84c9b6"
     },
-    "synced_at": "2026-11-18 14:02 UTC",
+    "synced_at": "2026-11-19 14:27 UTC",
     "namespaced_custom_formats": 88,
     "namespaced_regular_expressions": 346
   }
